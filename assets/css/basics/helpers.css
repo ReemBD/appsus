@@ -1,0 +1,33 @@
+/* HELPERS */
+
+.flex {
+    display: flex;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.space-evenly {
+    justify-content: space-evenly;
+}
+
+.grid {
+    display: grid;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.flex-column {
+    flex-direction: column;
+}
