@@ -1,55 +1,101 @@
-import { storageService } from '../../services/storageService.js'
-import { utilService } from '../../services/utilService.js'
+import { storageService } from '../../../services/storageService.js'
+import { utilService } from '../../../services/utilService.js'
 
 export const emailService = {
     remove,
-    getById
+    getById,
+    query,
+    markEmailAsRead,
+    addSentEmail
 }
 
-const KEY = 'emailsDB';
-const gEmails = [];
-_createEmails();
+const EMAILS_KEY = 'emailsDB'
+const SENT_EMAILS_KEY = 'sentEmailsDB'
+var gEmails = []
+_createEmails()
+var gSentEmails= []
+_getSentEmails()
 
 function query() {
-    return Promise.resolve(gEmails);
+    return Promise.resolve(gEmails)
+}
+
+function addSentEmail(email) {
+    const emailToAdd = {
+        id: utilService.makeId(),
+        sentAt: Date.now(),
+        ...email
+    }
+    gSentEmails = [emailToAdd, ...gSentEmails]
+    _saveSentEmailsToStorage();
+    console.log('gSentEmails: ', gSentEmails);
+    return Promise.resolve(emailToAdd)
 }
 
 
-function _saveEmailsToStorage() {
-    storageService.save(KEY, gEmails)
+function markEmailAsRead(email) {
+    const emailToUpdate = {
+        ...email
+    }
+    emailToUpdate.isRead = true
+    const emailsCopy = [...gEmails]
+    const emailIdx = emailsCopy.findIndex(email => email.id === emailToUpdate.id)
+    emailsCopy[emailIdx] = emailToUpdate
+    gEmails = emailsCopy
+    _saveEmailsToStorage()
+    return Promise.resolve(emailToUpdate)
 }
 
 
 function remove(emailId) {
-    gEmails = gEmails.filter(email => email.id !== emailId);
-    _saveEmailsToStorage();
-    return Promise.resolve();
+    gEmails = gEmails.filter(email => email.id !== emailId)
+    _saveEmailsToStorage()
+    return Promise.resolve()
 }
 
 function getById(emailId) {
-    const email = gEmails.find(email => email.id === emailId);
-    return Promise.resolve(email);
+    const email = gEmails.find(email => email.id === emailId)
+    return Promise.resolve(email)
 }
 
 function _createEmails() {
-    gEmails = storageService.load(KEY);
+    gEmails = storageService.load(EMAILS_KEY)
     if (!gEmails || !gEmails.length) {
-        gEmails = _getDemoEmails();
-        _saveEmailsToStorage();
+        gEmails = _getDemoEmails()
+        _saveEmailsToStorage()
     }
+}
+
+function _saveEmailsToStorage() {
+    storageService.save(EMAILS_KEY, gEmails)
+}
+
+function _saveSentEmailsToStorage() {
+    storageService.save(SENT_EMAILS_KEY, gSentEmails)
+}
+
+function _loadSentEmailsFromStorage() {
+    return Promise.resolve(storageService.load(SENT_EMAILS_KEY))
+}
+
+function _getSentEmails() {
+    _loadSentEmailsFromStorage().then(sentEmails => {
+        console.log('sentEmails', sentEmails);
+        if (!sentEmails || !sentEmails.length) gSentEmails = [];
+        else gSentEmails = sentEmails;
+    })
 }
 
 
 function _getDemoEmails() {
-    const emails = [
-        { id: 'i101', subject: 'I Love You', body: 'Hey Its Emma Watson and wanted to say you look really hot in the pictures', isRead: false, sentAt: Date.now() },
+    return [
+        { id: 'i101', subject: 'I sdfapokear You', body: 'Hey Its Emma Watson and wanted to say you look really hot in the pictures', isRead: false, sentAt: Date.now() },
         { id: 'i102', subject: 'I Love You', body: 'Hey Its Emma Watson and wanted to say you look really hot in the pictures', isRead: false, sentAt: Date.now() },
         { id: 'i103', subject: 'I Love You', body: 'Hey Its Emma Watson and wanted to say you look really hot in the pictures', isRead: false, sentAt: Date.now() },
-        { id: 'i104', subject: 'I Love You', body: 'Hey Its Emma Watson and wanted to say you look really hot in the pictures', isRead: false, sentAt: Date.now() },
-        { id: 'i105', subject: 'I Love You', body: 'Hey Its Emma Watson and wanted to say you look really hot in the pictures', isRead: false, sentAt: Date.now() },
-        { id: 'i106', subject: 'I Love You', body: 'Hey Its Emma Watson and wanted to say you look really hot in the pictures', isRead: false, sentAt: Date.now() },
+        { id: 'i104', subject: 'I Hate You', body: 'Hey Its Emma Watson and wanted to say you look really hot in the pictures', isRead: false, sentAt: Date.now() },
+        { id: 'i105', subject: 'I desire You', body: 'Hey Its Emma Watson and wanted to say you look really hot in the pictures', isRead: false, sentAt: Date.now() },
+        { id: 'i106', subject: 'I want You', body: 'Hey Its Emma Watson and wanted to say you look really hot in the pictures', isRead: false, sentAt: Date.now() },
         { id: 'i107', subject: 'I Love You', body: 'Hey Its Emma Watson and wanted to say you look really hot in the pictures', isRead: false, sentAt: Date.now() },
         { id: 'i108', subject: 'I Love You', body: 'Hey Its Emma Watson and wanted to say you look really hot in the pictures', isRead: false, sentAt: Date.now() },
-    ];
-    return emails;
+    ]
 }

@@ -1,9 +1,10 @@
-export function emailList({ emails, onRemoveEmail, onAddEmail }) {
+import {EmailPreview} from './EmailPreview.jsx'
+
+export function EmailList({ emails, onRemoveEmail, onAddEmail }) {
     return (
         <section className="email-list">
             {emails.map(email => {
-                return <emailPreview key={email.id} email={email}
-                    onRemoveEmail={onRemoveEmail} onAddEmail={onAddEmail} />;
+                return <EmailPreview key={email.id} email={email} />;
             })}
         </section>
     )
