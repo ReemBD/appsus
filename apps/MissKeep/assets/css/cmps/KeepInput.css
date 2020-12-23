@@ -1,0 +1,33 @@
+
+
+.keep-input-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    padding: 20px ;
+    width: 65%;
+    margin: 30px auto 20px auto;
+}
+
+.keep-input {
+    flex-grow: 1;
+}
+
+.keep-input input {
+    border: none;
+    width: 100%;
+}
+
+.keep-input-buttons {
+    display: flex;
+}
+
+.keep-input-buttons i {
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.keep-input-buttons > *:not(:first-of-type) {
+    margin-left: 10px;
+}

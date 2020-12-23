@@ -17,6 +17,10 @@ body {
     
 }
 
+img {
+    width: 100%;
+}
+
 ul {
     padding-inline-start: 0;
 

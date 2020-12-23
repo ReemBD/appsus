@@ -1,11 +1,11 @@
 /* BASE */
 
-@import '/assets/css/basics/base.css';
-@import '/assets/css/basics/helpers.css';
-@import '/assets/css/basics/fonts.css';
-@import '/assets/css/basics/HomePage.css';
-@import '/assets/css/basics/MainNav.css';
-@import '/assets/css/basics/UserMsg.css';
+@import './basics/base.css';
+@import './basics/helpers.css';
+@import './basics/fonts.css';
+@import './basics/HomePage.css';
+@import './basics/MainNav.css';
+@import './basics/UserMsg.css';
 /* APPS */
 
 @import '/apps/MissKeep/assets/css/KeepMain.css';
