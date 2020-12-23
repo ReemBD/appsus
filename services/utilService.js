@@ -1,5 +1,7 @@
 export const utilService = {
-    makeId
+    makeId,
+    formatTime,
+    getRandomInteger
 };
 
 function makeId(length = 6) {
@@ -12,6 +14,12 @@ function makeId(length = 6) {
 
     return txt;
 }
+
+function formatTime(timestamp) {
+    const date = new Date(timestamp).toLocaleDateString();
+    return date;
+}
+
 
 function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
