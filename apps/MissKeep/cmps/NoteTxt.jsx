@@ -1,16 +1,16 @@
+import { NoteActions } from './NoteActions.jsx';
 export class NoteTxt extends React.Component {
 
-    onNoteDelete = () => {
-        const { note, onDelete } = this.props;
-        onDelete(note.id)
-    }
+
 
     render() {
-        const { note } = this.props
+        const { note, onDelete } = this.props
         return (
             <div className='note-container'>
-                <textarea spellCheck="false" className='note note-text'>{note.info.txt}</textarea>
-                <button onClick={this.onNoteDelete}>delete</button>
+                <div spellCheck="false" className='note note-text'>{note.info.txt}
+                    <NoteActions note={note} onDelete={onDelete} />
+                </div>
+
             </div>
         )
     }

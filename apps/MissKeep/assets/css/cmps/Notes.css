@@ -6,9 +6,15 @@
 .note-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  width: 85%;
+  margin: 0 auto;
 }
 
 .note {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   font: 20px cursive; 
   line-height: 1.5;
   padding: 25px 25px 40px;
@@ -22,6 +28,7 @@
 
 .note-text {
   min-height: 15.625rem;
+  width: 230px;
 }
 
 .note-img {
@@ -32,9 +39,19 @@
 
 .note-todos {
   width: 230px;
-  min-height: 300px;
 }
 
 .note-todos li {
   list-style: inside;
+}
+
+.note-actions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.note-actions > * {
+  cursor: pointer;
+  
 }

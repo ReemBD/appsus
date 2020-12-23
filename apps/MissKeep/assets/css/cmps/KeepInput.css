@@ -8,6 +8,13 @@
     padding: 20px ;
     width: 65%;
     margin: 30px auto 20px auto;
+
+    transition: box-shadow .2s;
+}
+
+.keep-input-container:focus-within {
+        box-shadow: 0 0 1px 1px #D3D3D3;
+
 }
 
 .keep-input {
@@ -18,6 +25,7 @@
     border: none;
     width: 100%;
 }
+
 
 .keep-input-buttons {
     display: flex;
