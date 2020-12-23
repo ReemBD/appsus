@@ -18,14 +18,23 @@
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   transition: box-shadow 0.5s ease;
   max-width: 520px; 
-  height: 15.625rem;
+}
+
+.note-text {
+  min-height: 15.625rem;
 }
 
 .note-img {
   max-width: 400px;
+  max-height: 350px;
   object-fit: cover;
 }
 
-.note-list {
+.note-todos {
+  width: 230px;
+  min-height: 300px;
+}
 
+.note-todos li {
+  list-style: inside;
 }

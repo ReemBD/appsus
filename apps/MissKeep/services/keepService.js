@@ -3,7 +3,10 @@ import { utilService } from '../../../services/utilService.js'
 
 export const keepService = {
     query,
-    saveNote
+    saveNote,
+    deleteNote,
+    getNoteById,
+
 }
 
 
@@ -64,6 +67,16 @@ function saveNote(note) {
     formatNote(note)
 }
 
+function deleteNote(noteId) {
+    gNotes = gNotes.filter(note => note.id !== noteId)
+    _saveNotesToStorage()
+    return Promise.resolve()
+}
+
+function getNoteById(noteId) {
+    const note = gNotes.find(note => note.id === noteId)
+    return Promise.resolve(note)
+}
 function formatNote(note) {
     const { noteType, keepTxt } = note;
     if (noteType === 'NoteTodos') {
@@ -139,6 +152,11 @@ function formatImg(noteType, keepTxt) {
             backgroundColor: "#FFF475" // ADD FUNTIONALITY
         }
     }
+    const gNotesCopy = [...gNotes]
+    gNotesCopy.unshift(note)
+    gNotes = gNotesCopy;
+    console.log(gNotes);
+    _saveNotesToStorage()
 }
 
 

@@ -10,11 +10,19 @@ export class KeepInput extends React.Component {
         }
     }
 
+    refInput = React.createRef()
+
+    componentDidMount() {
+        this.refInput.current.focus()
+    }
+
+
     onKeepTypeSelect = (selectedType) => { // Change input type and placeholder on user click
         let type;
         if (selectedType === 'NoteText') this.updateState('text', 'Write a keep', selectedType)
         else if (selectedType === 'NoteImg') this.updateState('text', 'Paste Image Link', selectedType)
         else if (selectedType === 'NoteTodos') this.updateState('text', 'Write todos seperated by comma', selectedType)
+        this.refInput.current.focus()
     }
 
     updateState = (type, placeholder, noteType) => {
@@ -56,7 +64,7 @@ export class KeepInput extends React.Component {
             <div className="keep-input-container">
                 <div className="keep-input">
                     <form onSubmit={this.onAddInput}>
-                        <input type={type} placeholder={placeholder} name="keepTxt" value={keepTxt} onChange={this.handleChange} />
+                        <input type={type} placeholder={placeholder} name="keepTxt" value={keepTxt} onChange={this.handleChange} ref={this.refInput} />
                     </form>
                 </div>
 

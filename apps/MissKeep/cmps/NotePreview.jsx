@@ -4,14 +4,14 @@ import { NoteTodos } from './NoteTodos.jsx'
 export class NotePreview extends React.Component {
 
     dynamicNoteFunction = () => {
-        const { note } = this.props
+        const { note, onDelete } = this.props
         switch (note.type) {
             case 'NoteText':
-                return <NoteTxt note={note} />
+                return <NoteTxt note={note} onDelete={onDelete} />
             case 'NoteImg':
-                return <NoteImg note={note} />
+                return <NoteImg note={note} onDelete={onDelete} />
             case 'NoteTodos':
-                return <NoteTodos note={note} />
+                return <NoteTodos note={note} onDelete={onDelete} />
         }
     }
 

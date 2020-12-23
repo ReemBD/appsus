@@ -26,6 +26,19 @@ export class KeepApp extends React.Component {
     onNoteAdd = (note) => {
         console.log('From app', note)
         keepService.saveNote(note)
+        this.loadNotes()
+        // .then(notes => {
+        //     const copyNotes = [...this.state.notes]
+        //     copyNotes = notes
+        //     this.setState({ notes: copyNotes })
+
+        // })
+    }
+
+    onNoteDelete = (noteId) => {
+        console.log(noteId)
+        keepService.deleteNote(noteId)
+            .then(this.loadNotes)
 
     }
 
@@ -34,7 +47,7 @@ export class KeepApp extends React.Component {
         return (
             <div className='keep-app keep-main-layout'>
                 <KeepInput onAdd={this.onNoteAdd} />
-                <NoteList notes={notesForDisplay} />
+                <NoteList notes={notesForDisplay} onDelete={this.onNoteDelete} />
             </div>
         )
     }
