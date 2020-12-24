@@ -48,7 +48,19 @@ var demoNotes = [
         style: {
             backgroundColor: "#FFF475"
         }
-    }
+    },
+    {
+        type: "NoteVideo",
+        id: 4,
+        info: {
+            url: 'https://www.youtube.com/embed/tgbNymZ7vqY'
+        },
+        style: {
+            backgroundColor: "#FFF475"
+        }
+    },
+
+
 ];
 
 _createNotes()

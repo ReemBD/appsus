@@ -23,9 +23,9 @@ export class NotePreview extends React.Component {
 
         // console.log('note from dynamic', note);
         return (
-            <span className='notes-preview'>
+            <div className='note-preview'>
                 {this.dynamicNoteFunction()}
-            </span>
+            </div>
         )
     }
 }

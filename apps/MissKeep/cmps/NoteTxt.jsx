@@ -6,10 +6,10 @@ export class NoteTxt extends React.Component {
     render() {
         const { note, onDelete } = this.props
         return (
-            <div className='note-container'>
-                <div spellCheck="false" className='note note-text'>{note.info.txt}
-                    <NoteActions note={note} onDelete={onDelete} />
-                </div>
+            <div className='note note-container'>
+                <textarea spellCheck="false" className=' note-text'>{note.info.txt}
+                </textarea>
+                <NoteActions note={note} onDelete={onDelete} />
 
             </div>
         )
