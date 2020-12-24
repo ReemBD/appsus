@@ -9,7 +9,7 @@ export function EmailPreview({ email }) {
     }}>
         <h1 className="email-preview-subject">{email.subject}</h1>
         <h3 className="email-preview-body">{email.body.substring(0, 20)}...</h3>
-        <h3>{utilService.formatTime(email.sentAt)}</h3>
+        <h3>{utilService.formatHours(new Date(email.sentAt))}</h3>
     </div>
     </Link>
 }

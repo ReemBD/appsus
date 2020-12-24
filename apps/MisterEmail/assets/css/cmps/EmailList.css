@@ -1,0 +1,11 @@
+
+.email-main-container .email-list {
+    flex-grow: 4;
+}
+
+.email-main-container .email-list .email-preview {
+    background-color: rgb(31, 218, 31);
+    padding: 20px 0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}

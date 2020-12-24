@@ -1,49 +1,12 @@
-.email-main-container .aside {
-    flex-grow: 1;
-    margin-inline-end: 30px;
-}
 
-.email-main-container .email-list {
-    flex-grow: 4;
-}
+@import './cmps/EmailApp.css';
+@import './cmps/EmailCompose.css';
+@import './cmps/EmailFilter.css';
+@import './cmps/EmailList.css';
+@import './cmps/EmailStatus.css';
 
-.email-main-container .email-list .email-preview {
-    background-color: rgb(31, 218, 31);
-    padding: 20px 0;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
 
-/* COMPOSE EMAIL MODAL */
 
-.email-app .compose-email-form {
-    position: fixed;
-    background-color: green;
-    left: 50%;
-    width: 80vw;
-    bottom: 0;
-    transform: translateX(-50%);
-    padding: 40px;
-    animation-name: show-modal;
-    animation-duration: 1s;
-}
-
-.email-app .compose-email-form>*:not(:last-child) {
-    margin-bottom: 20px;
-}
-
-.email-app .compose-email-form .close-btn {
-    color: red;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.hide-modal {
-    background-color: red;
-    animation-name: hide-modal !important;
-    animation-duration: 1s;
-}
 
 /* ANIMATIONS */
 

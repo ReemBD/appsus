@@ -1,0 +1,14 @@
+.email-main-container .aside {
+    flex-grow: 1;
+    margin-inline-end: 30px;
+}
+
+
+.email-app .aside .compose-btn {
+margin-bottom: 10px;
+}
+
+.email-app .aside .categories li {
+    margin-bottom: 10px;
+
+}

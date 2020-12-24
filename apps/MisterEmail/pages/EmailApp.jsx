@@ -9,7 +9,7 @@ export class EmailApp extends React.Component {
     state = {
         emails: [],
         filterBy: {
-            subject: ''
+            text: ''
         },
         isComposeOpen: false,
     }
@@ -22,8 +22,9 @@ export class EmailApp extends React.Component {
 
     get emailsForDisplay() {
         const { filterBy } = this.state;
-        const filterRegex = new RegExp(filterBy.subject, 'i')
-        return this.state.emails.filter(email => filterRegex.test(email.subject))
+        console.log('filterBy: ', filterBy);
+        const filterRegex = new RegExp(filterBy.text, 'i')
+        return this.state.emails.filter(email => filterRegex.test(email.subject + email.body))
     }
 
     componentDidMount() {
@@ -34,8 +35,8 @@ export class EmailApp extends React.Component {
         this.setState({ isComposeOpen: false })
     }
 
-    onSetFilter = (filterBy) => {
-        this.setState({ filterBy }, () => console.log('this.state: ', this.state))
+    onSetFilter = (type, filterBy) => {
+        this.setState({ filterBy }, () => console.log('this.state.filterBy: ', this.state.filterBy))
     }
 
     render() {
@@ -53,12 +54,13 @@ export class EmailApp extends React.Component {
                             <li>Sent Mail</li>
                             <li>Drafts</li>
                         </ul>
+                        <EmailStatus />
                     </div>
                     <EmailList emails={emailsForDisplay} />
                     {isComposeOpen && <EmailCompose closeComposeWin={this.closeComposeWin} />}
 
-                    <div>{ /* <EmailStatus />
-                    */}</div>
+                    <div>
+                    </div>
                 </div>
             </div>
         )
