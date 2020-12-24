@@ -7,11 +7,12 @@ export function NoteActions(props) {
     return (
         <div className="note-actions">
 
-            <div onClick={onNoteDelete} className="note-delete-btn"><i className="far fa-trash-alt"></i></div>
             <div className="note-pin-btn">
                 <i className="fas fa-thumbtack"></i>
             </div>
-            <div className="note-color"><i class="fas fa-palette"></i></div>
+            <div className="note-edit-btn"><i className="far fa-edit"></i></div>
+            <div className="note-color"><i className="fas fa-palette"></i></div>
+            <div onClick={onNoteDelete} className="note-delete-btn"><i className="far fa-trash-alt"></i></div>
         </div>
     )
 }

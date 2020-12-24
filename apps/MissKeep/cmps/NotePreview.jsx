@@ -1,6 +1,7 @@
 import { NoteTxt } from './NoteTxt.jsx'
 import { NoteImg } from './NoteImg.jsx'
 import { NoteTodos } from './NoteTodos.jsx'
+import { NoteVideo } from './NoteVideo.jsx'
 export class NotePreview extends React.Component {
 
     dynamicNoteFunction = () => {
@@ -12,6 +13,8 @@ export class NotePreview extends React.Component {
                 return <NoteImg note={note} onDelete={onDelete} />
             case 'NoteTodos':
                 return <NoteTodos note={note} onDelete={onDelete} />
+            case 'NoteVideo':
+                return <NoteVideo note={note} onDelete={onDelete} />
         }
     }
 

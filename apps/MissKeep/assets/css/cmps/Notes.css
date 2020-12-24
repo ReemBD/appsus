@@ -39,10 +39,23 @@
 
 .note-todos {
   width: 230px;
+  padding-bottom: 15px;
 }
 
 .note-todos li {
   list-style: inside;
+}
+
+.note-todos .todos-container li:last-of-type{
+  margin-bottom: 10px;
+}
+
+.note-video {
+  padding-bottom: 10px;
+}
+
+.note-video iframe {
+  margin-bottom: 10px;
 }
 
 .note-actions {

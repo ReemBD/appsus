@@ -18,10 +18,10 @@ export class KeepInput extends React.Component {
 
 
     onKeepTypeSelect = (selectedType) => { // Change input type and placeholder on user click
-        let type;
         if (selectedType === 'NoteText') this.updateState('text', 'Write a keep', selectedType)
         else if (selectedType === 'NoteImg') this.updateState('text', 'Paste Image Link', selectedType)
         else if (selectedType === 'NoteTodos') this.updateState('text', 'Write todos seperated by comma', selectedType)
+        else if (selectedType === 'NoteVideo') this.updateState('text', 'Paste Youtube Link', selectedType)
         this.refInput.current.focus()
     }
 
@@ -74,6 +74,8 @@ export class KeepInput extends React.Component {
                     <p onClick={() => this.onKeepTypeSelect('NoteImg')} ><i className="far fa-image "></i></p>
 
                     <p onClick={() => this.onKeepTypeSelect('NoteTodos')}><i className="fas fa-list-ul "></i></p>
+
+                    <p onClick={() => this.onKeepTypeSelect('NoteVideo')}><i className="fab fa-youtube"></i></p>
                 </div>
             </div>
         )
