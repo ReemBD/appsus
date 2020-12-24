@@ -7,6 +7,8 @@ export class NoteTxt extends React.Component {
         }
     }
 
+
+
     handleChange = (ev) => {
         const callback = () => {
             this.props.onEdit(this.state.txtInfo.txt, this.props.note.id)
@@ -23,7 +25,7 @@ export class NoteTxt extends React.Component {
         const { note, onDelete } = this.props
         return (
             <div className='note note-container'>
-                <textarea onChange={this.handleChange} spellCheck="false" value={note.info.txt} name="txt" className=' note-text'>{note.info.txt}
+                <textarea onChange={this.handleChange} spellCheck="false" value={note.info.txt} placeholder="Empty Note" name="txt" className=' note-text'>{note.info.txt}
                 </textarea>
                 <NoteActions note={note} onDelete={onDelete} />
 

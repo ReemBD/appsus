@@ -3,7 +3,7 @@ export class KeepInput extends React.Component {
     state = {
         inputInfo: {
             type: 'text',
-            placeholder: 'Write a keep',
+            placeholder: 'Write a note',
             noteType: 'NoteText',
             keepTxt: '',
 
@@ -18,7 +18,7 @@ export class KeepInput extends React.Component {
 
 
     onKeepTypeSelect = (selectedType) => { // Change input type and placeholder on user click
-        if (selectedType === 'NoteText') this.updateState('text', 'Write a keep', selectedType)
+        if (selectedType === 'NoteText') this.updateState('text', 'Write a note', selectedType)
         else if (selectedType === 'NoteImg') this.updateState('text', 'Paste Image Link', selectedType)
         else if (selectedType === 'NoteTodos') this.updateState('text', 'Write todos seperated by comma', selectedType)
         else if (selectedType === 'NoteVideo') this.updateState('text', 'Paste Youtube Link', selectedType)
