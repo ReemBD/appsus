@@ -5,6 +5,7 @@ export const keepService = {
     query,
     saveNote,
     deleteNote,
+    updateNote,
     getNoteById,
 
 }
@@ -81,6 +82,15 @@ function saveNote(note) {
 
 function deleteNote(noteId) {
     gNotes = gNotes.filter(note => note.id !== noteId)
+    _saveNotesToStorage()
+    return Promise.resolve()
+}
+
+function updateNote(noteId, txt) {
+    const notes = [...gNotes]
+    const noteToUpdateIdx = gNotes.findIndex(note => note.id === noteId)
+    notes[noteToUpdateIdx].info.txt = txt
+    gNotes = notes
     _saveNotesToStorage()
     return Promise.resolve()
 }

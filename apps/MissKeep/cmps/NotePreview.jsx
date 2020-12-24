@@ -5,10 +5,10 @@ import { NoteVideo } from './NoteVideo.jsx'
 export class NotePreview extends React.Component {
 
     dynamicNoteFunction = () => {
-        const { note, onDelete } = this.props
+        const { note, onDelete, onEdit } = this.props
         switch (note.type) {
             case 'NoteText':
-                return <NoteTxt note={note} onDelete={onDelete} />
+                return <NoteTxt note={note} onDelete={onDelete} onEdit={onEdit} />
             case 'NoteImg':
                 return <NoteImg note={note} onDelete={onDelete} />
             case 'NoteTodos':

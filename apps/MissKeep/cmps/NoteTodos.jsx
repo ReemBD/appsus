@@ -8,7 +8,6 @@ export class NoteTodos extends React.Component {
                     <div className="todos-container">
 
                         {note.info.todos.map(todo => {
-                            console.log(todo.id)
                             return <li key={todo.id}>{todo.txt.trim()}</li>
                         })}
                     </div>
