@@ -1,12 +1,15 @@
-
 @import './cmps/EmailApp.css';
 @import './cmps/EmailCompose.css';
 @import './cmps/EmailFilter.css';
 @import './cmps/EmailList.css';
 @import './cmps/EmailStatus.css';
+.email-app, input, button, a {
+    font-family: roboto;
+}
 
-
-
+.email-app {
+    padding: 20px;
+}
 
 /* ANIMATIONS */
 

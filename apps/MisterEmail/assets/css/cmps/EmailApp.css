@@ -3,12 +3,64 @@
     margin-inline-end: 30px;
 }
 
-
-.email-app .aside .compose-btn {
-margin-bottom: 10px;
+.email-app .aside .categories li {
+    /* margin-bottom: 10px; */
+    position: relative;
+    padding: 8px 5px;
+    transition: border-inline-start-width 0.15s;
 }
 
-.email-app .aside .categories li {
-    margin-bottom: 10px;
+.email-app .aside .categories li:last-child {
+    margin-bottom: 20px;
+} 
 
+.email-app .aside .categories li a {
+    /* position: absolute; */
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    transition: transform .2s;
+}
+
+.email-app .aside .categories li:nth-child(1) {
+    border-inline-start: 5px solid rgb(65, 172, 71);
+}
+
+.email-app .aside .categories li:nth-child(2) {
+    border-inline-start: 5px solid rgb(25, 57, 94);
+}
+
+.email-app .aside .categories li:nth-child(3) {
+    border-inline-start: 5px solid rgb(151, 40, 146);
+}
+
+.email-app .aside .categories li:nth-child(4) {
+    border-inline-start: 5px solid rgb(85, 15, 15);
+}
+
+.email-app .aside .categories li:hover {
+    /* background-color: #f2f2f7; */
+    border-inline-start-width: 8px;
+    /* transform: translateX(5%); */
+}
+
+.email-app .aside .categories li:hover a {
+    transform: translateX(6%);
+}
+.email-app .aside .compose-btn {
+    align-self: center;
+    text-align: center;
+    padding: 20px 35px;
+    border-radius: 9999px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 5px 1px rgba(60, 64, 67, 0.149);
+    background-color: #fff;
+    font-size: .875rem;
+    letter-spacing: .25px;
+    transition: box-shadow .8s;
+    margin-bottom: 30px;
+}
+
+.email-app .compose-btn:hover {
+    background-color: #fafafb;
+    box-shadow: 0 1px 5px 0 rgba(60, 64, 67, 0.302), 0 4px 8px 5px rgba(60, 64, 67, 0.149);
 }

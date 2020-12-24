@@ -8,13 +8,9 @@ export class EmailFilter extends React.Component {
     }
 
     handleChange = (ev) => {
-        console.log('ev.target.value', ev.target.value);
-        console.log('ev.target.name ', ev.target.name);
         const filterBy = { ...this.state.filterBy }
-        console.log('filterBy: ', filterBy);
         filterBy[ev.target.name] = ev.target.value;
         this.setState({ filterBy }, () => {
-            console.log('this.state.filterBy: ', this.state.filterBy);
             this.props.onSetFilter(this.state.filterBy);
         })
         // const value = ev.target.type === 'text' ? +ev.target.value : ev.target.value;
@@ -24,6 +20,8 @@ export class EmailFilter extends React.Component {
         // this.setState({ [field]: value }, callback)
     }
 
+    componentDidMount() {
+    }
     /* 
         two types of filter: text, and select.
         with text its easy because im filtering by the text that is written. by the value.
@@ -37,9 +35,10 @@ export class EmailFilter extends React.Component {
             <section className="email-filter flex">
                 <input type="text" name="text"
                     value={this.state.filterBy.text}
-                    placeholder="Filter by text"
+                    placeholder="Search"
                     onChange={this.handleChange} />
                 <select onChange={this.handleChange} name="readStatus" id="">
+                    <option value="all">All</option>
                     <option value="read">Read</option>
                     <option value="unread">Unread</option>
                 </select>

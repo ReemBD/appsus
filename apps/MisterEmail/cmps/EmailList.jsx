@@ -1,10 +1,10 @@
-import {EmailPreview} from './EmailPreview.jsx'
+import { EmailPreview } from './EmailPreview.jsx'
 
-export function EmailList({ emails, onRemoveEmail, onAddEmail }) {
+export function EmailList({ emails, openEmail, toggleMarked, toggleFav }) {
     return (
         <section className="email-list">
             {emails.map(email => {
-                return <EmailPreview key={email.id} email={email} />;
+                return <EmailPreview key={email.id} openEmail={openEmail} toggleFav={toggleFav} toggleMarked={toggleMarked} email={email} />;
             })}
         </section>
     )
