@@ -9,7 +9,8 @@ export class EmailApp extends React.Component {
     state = {
         emails: [],
         filterBy: {
-            text: ''
+            text: '',
+            readStatus: ''
         },
         isComposeOpen: false,
     }
@@ -21,6 +22,7 @@ export class EmailApp extends React.Component {
     }
 
     get emailsForDisplay() {
+        // return this.state.emails;
         const { filterBy } = this.state;
         console.log('filterBy: ', filterBy);
         const filterRegex = new RegExp(filterBy.text, 'i')
@@ -35,8 +37,8 @@ export class EmailApp extends React.Component {
         this.setState({ isComposeOpen: false })
     }
 
-    onSetFilter = (type, filterBy) => {
-        this.setState({ filterBy }, () => console.log('this.state.filterBy: ', this.state.filterBy))
+    onSetFilter = (filterBy) => {
+        this.setState({ filterBy }, () => console.log('(from emailApp) this.state.filterBy: ', this.state.filterBy))
     }
 
     render() {
@@ -44,7 +46,7 @@ export class EmailApp extends React.Component {
         const { isComposeOpen } = this.state
         return (
             <div className="email-app">
-                <EmailFilter filterBy={this.state.filterBy} onSetFilter={this.onSetFilter} />
+                <EmailFilter onSetFilter={this.onSetFilter} />
                 <div className="email-main-container flex">
                     <div className="aside flex flex-column">
                         <button className="compose-btn cursor-pointer" onClick={() => { this.setState({ isComposeOpen: true }) }}>Compose</button>

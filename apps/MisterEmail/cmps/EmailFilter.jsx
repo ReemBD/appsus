@@ -8,11 +8,14 @@ export class EmailFilter extends React.Component {
     }
 
     handleChange = (ev) => {
+        console.log('ev.target.value', ev.target.value);
+        console.log('ev.target.name ', ev.target.name);
         const filterBy = { ...this.state.filterBy }
+        console.log('filterBy: ', filterBy);
         filterBy[ev.target.name] = ev.target.value;
-
         this.setState({ filterBy }, () => {
-            this.props.onSetFilter(this.state.filterBy.text);
+            console.log('this.state.filterBy: ', this.state.filterBy);
+            this.props.onSetFilter(this.state.filterBy);
         })
         // const value = ev.target.type === 'text' ? +ev.target.value : ev.target.value;
 
