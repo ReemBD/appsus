@@ -6,6 +6,7 @@ export const keepService = {
     saveNote,
     deleteNote,
     updateNote,
+    changeColor,
     getNoteById,
 
 }
@@ -88,8 +89,23 @@ function deleteNote(noteId) {
 
 function updateNote(noteId, txt) {
     const notes = [...gNotes]
-    const noteToUpdateIdx = gNotes.findIndex(note => note.id === noteId)
+    const noteToUpdateIdx = getNoteIdxById(noteId)
     notes[noteToUpdateIdx].info.txt = txt
+    gNotes = notes
+    _saveNotesToStorage()
+    return Promise.resolve()
+}
+
+function changeColor(color, noteId) {
+    const noteToUpdateIdx = getNoteIdxById(noteId)
+    const notes = [...gNotes]
+    let cssColor;
+    if (color === 'yellow') cssColor = 'linear-gradient(#F9EFAF, #F7E98D)'
+    else if (color === 'purple') cssColor = '#D7AEFB'
+    else if (color === 'green') cssColor = '#CAF4B9'
+    else if (color === 'blue') cssColor = '#b9dcf4'
+    else cssColor = '#FFBDA3'
+    notes[noteToUpdateIdx].style.backgroundColor = cssColor
     gNotes = notes
     _saveNotesToStorage()
     return Promise.resolve()
@@ -99,6 +115,11 @@ function getNoteById(noteId) {
     const note = gNotes.find(note => note.id === noteId)
     return Promise.resolve(note)
 }
+
+function getNoteIdxById(noteId) {
+    return gNotes.findIndex(note => note.id === noteId)
+}
+
 function formatNote(note) {
     const { noteType, keepTxt } = note;
     const formmatedNote = {
@@ -111,7 +132,7 @@ function formatNote(note) {
             url: null
         },
         style: {
-            backgroundColor: "#FFF475" // ADD FUNTIONALITY
+            background: "linear-gradient(#F9EFAF, #F7E98D)" // ADD FUNTIONALITY
         }
 
     }
@@ -151,75 +172,6 @@ function formatNote(note) {
     console.log(gNotes);
     _saveNotesToStorage()
 
-}
-
-// function formatTodos(noteType, keepTxt) {
-//     const userTodos = keepTxt.split(',')
-//     const formattedTodos = []
-//     userTodos.forEach(todo => {
-//         formattedTodos.push({
-//             txt: todo,
-//             doneAt: null,
-//             id: utilService.makeId()
-//         })
-//     })
-//     const note = {
-//         type: noteType,
-//         id: utilService.makeId(),
-//         isPinned: false,
-//         info: {
-//             todos: formattedTodos
-//         },
-//         style: {
-//             backgroundColor: "#FFF475" // ADD FUNTIONALITY
-//         }
-
-//     }
-//     const gNotesCopy = [...gNotes]
-//     gNotesCopy.unshift(note)
-//     gNotes = gNotesCopy;
-//     console.log(gNotes);
-//     _saveNotesToStorage()
-// }
-
-// function formatText(noteType, keepTxt) {
-//     const note = {
-//         type: noteType,
-//         id: utilService.makeId(),
-//         isPinned: false,
-//         info: {
-//             txt: keepTxt
-//         },
-//         style: {
-//             backgroundColor: "#FFF475" // ADD FUNTIONALITY
-//         }
-//     }
-//     const gNotesCopy = [...gNotes]
-//     gNotesCopy.unshift(note)
-//     gNotes = gNotesCopy;
-//     console.log(gNotes);
-//     _saveNotesToStorage()
-
-// }
-
-function formatImg(noteType, keepTxt) {
-    const note = {
-        type: noteType,
-        id: utilService.makeId(),
-        isPinned: false,
-        info: {
-            url: keepTxt,
-            title: 'My Image' // ADD THIS FUNCTIONALITY
-        },
-        style: {
-            backgroundColor: "#FFF475" // ADD FUNTIONALITY
-        }
-    }
-    const gNotesCopy = [...gNotes]
-    gNotesCopy.unshift(note)
-    gNotes = gNotesCopy;
-    console.log(gNotes);
-    _saveNotesToStorage()
 }
 
 

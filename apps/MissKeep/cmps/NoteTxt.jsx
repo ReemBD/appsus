@@ -21,13 +21,18 @@ export class NoteTxt extends React.Component {
     }
 
 
+
+
     render() {
-        const { note, onDelete } = this.props
+        const { note, onDelete, onColor } = this.props
+        const noteStyle = {
+            background: note.style.backgroundColor
+        }
         return (
-            <div className='note note-container'>
+            <div className='note note-container' style={noteStyle}>
                 <textarea onChange={this.handleChange} spellCheck="false" value={note.info.txt} placeholder="Empty Note" name="txt" className=' note-text'>{note.info.txt}
                 </textarea>
-                <NoteActions note={note} onDelete={onDelete} />
+                <NoteActions note={note} onDelete={onDelete} onColor={onColor} />
 
             </div>
         )

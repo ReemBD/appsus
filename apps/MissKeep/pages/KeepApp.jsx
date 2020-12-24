@@ -48,12 +48,20 @@ export class KeepApp extends React.Component {
             .then(this.loadNotes())
     }
 
+    onNoteColorChange = (color, noteId) => {
+        console.log(color, noteId);
+        keepService.changeColor(color, noteId)
+            .then(this.loadNotes())
+            .then(console.log(this.state.notes))
+
+    }
+
     render() {
         const notesForDisplay = this.notesForDisplay;
         return (
             <div className='keep-app keep-main-layout'>
                 <KeepInput onAdd={this.onNoteAdd} />
-                <NoteList notes={notesForDisplay} onDelete={this.onNoteDelete} onEdit={this.onNoteEdit} />
+                <NoteList notes={notesForDisplay} onDelete={this.onNoteDelete} onEdit={this.onNoteEdit} onColor={this.onNoteColorChange} />
             </div>
         )
     }

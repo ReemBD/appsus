@@ -29,6 +29,11 @@
   transition: box-shadow 0.5s ease;
   width: 300px; 
   min-height: 330px;
+
+}
+
+.note:hover {
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302),0 1px 3px 1px rgba(60,64,67,0.149)
 }
 
 .note-text {
@@ -84,4 +89,39 @@
 .note-actions > * {
   cursor: pointer;
   
+}
+
+.actions-container {
+  max-height: 30px;
+}
+
+.color-palette {
+  position: relative;
+  top: 20px;
+  border: none;
+  border-radius: 3px;
+  justify-content: space-around;
+}
+
+.color-circle {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.color-palette .yellow {
+  background: linear-gradient(#F9EFAF, #F7E98D);
+}
+.color-palette .purple {
+  background: #D7AEFB;
+}
+.color-palette .green {
+  background: #CAF4B9;
+}
+.color-palette .blue {
+  background: #b9dcf4
+}
+.color-palette .red {
+  background: #FFBDA3;
 }
