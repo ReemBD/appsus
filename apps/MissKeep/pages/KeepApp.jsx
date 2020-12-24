@@ -1,6 +1,7 @@
 import { KeepInput } from '../cmps/KeepInput.jsx'
 import { keepService } from '../services/keepService.js'
 import { NoteList } from '../cmps/NoteList.jsx'
+import { utilService } from '../../../services/utilService.js'
 
 export class KeepApp extends React.Component {
 
@@ -42,12 +43,17 @@ export class KeepApp extends React.Component {
 
     }
 
+    onNoteEdit = (newTxt, note) => {
+        keepService.updateNote(note, newTxt)
+            .then(this.loadNotes())
+    }
+
     render() {
         const notesForDisplay = this.notesForDisplay;
         return (
             <div className='keep-app keep-main-layout'>
                 <KeepInput onAdd={this.onNoteAdd} />
-                <NoteList notes={notesForDisplay} onDelete={this.onNoteDelete} />
+                <NoteList notes={notesForDisplay} onDelete={this.onNoteDelete} onEdit={this.onNoteEdit} />
             </div>
         )
     }

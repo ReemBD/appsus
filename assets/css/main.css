@@ -8,5 +8,5 @@
 @import './basics/UserMsg.css';
 /* APPS */
 
-@import '/apps/MissKeep/assets/css/KeepMain.css';
-@import '/apps/MisterEmail/assets/css/EmailMain.css';
+@import '../../apps/MissKeep/assets/css/KeepMain.css';
+@import '../../apps/MisterEmail/assets/css/EmailMain.css';

@@ -5,6 +5,7 @@ export const keepService = {
     query,
     saveNote,
     deleteNote,
+    updateNote,
     getNoteById,
 
 }
@@ -18,7 +19,7 @@ var demoNotes = [
         id: 1,
         isPinned: true,
         info: {
-            txt: "Fullstack Me Baby!"
+            txt: "Netflix password: password"
         },
         style: {
             backgroundColor: "#FFF475"
@@ -41,14 +42,26 @@ var demoNotes = [
         info: {
             label: "How was it:",
             todos: [
-                { txt: "Do that", doneAt: null },
-                { txt: "Do this", doneAt: 187111111 }
+                { txt: "Buy a birthday present", doneAt: null, id: utilService.makeId() },
+                { txt: "Renew passport", doneAt: 187111111, id: utilService.makeId() }
             ]
         },
         style: {
             backgroundColor: "#FFF475"
         }
-    }
+    },
+    {
+        type: "NoteVideo",
+        id: 4,
+        info: {
+            url: 'https://www.youtube.com/embed/tgbNymZ7vqY'
+        },
+        style: {
+            backgroundColor: "#FFF475"
+        }
+    },
+
+
 ];
 
 _createNotes()
@@ -73,71 +86,121 @@ function deleteNote(noteId) {
     return Promise.resolve()
 }
 
+function updateNote(noteId, txt) {
+    const notes = [...gNotes]
+    const noteToUpdateIdx = gNotes.findIndex(note => note.id === noteId)
+    notes[noteToUpdateIdx].info.txt = txt
+    gNotes = notes
+    _saveNotesToStorage()
+    return Promise.resolve()
+}
+
 function getNoteById(noteId) {
     const note = gNotes.find(note => note.id === noteId)
     return Promise.resolve(note)
 }
 function formatNote(note) {
     const { noteType, keepTxt } = note;
+    const formmatedNote = {
+        type: noteType,
+        id: utilService.makeId(),
+        isPinned: false,
+        info: {
+            todos: null,
+            txt: null,
+            url: null
+        },
+        style: {
+            backgroundColor: "#FFF475" // ADD FUNTIONALITY
+        }
+
+    }
+
     if (noteType === 'NoteTodos') {
-        formatTodos(noteType, keepTxt)
+        const formattedTodos = []
+        const userTodos = keepTxt.split(',')
+        userTodos.forEach(todo => {
+            formattedTodos.push({
+                txt: todo,
+                doneAt: null,
+                id: utilService.makeId()
+            })
+        })
+
+        formmatedNote.info.todos = formattedTodos
+        formmatedNote.type = noteType;
+
     }
     else if (noteType === 'NoteText') {
-        formatText(noteType, keepTxt)
+        formmatedNote.type = noteType
+        formmatedNote.info.txt = keepTxt
     }
     else if (noteType === 'NoteImg') {
-        formatImg(noteType, keepTxt)
+        formmatedNote.type = noteType;
+        formmatedNote.info.url = keepTxt;
     }
 
-}
-
-function formatTodos(noteType, keepTxt) {
-    const userTodos = keepTxt.split(',')
-    const formattedTodos = []
-    userTodos.forEach(todo => {
-        formattedTodos.push({
-            txt: todo,
-            doneAt: null
-        })
-    })
-    const note = {
-        type: noteType,
-        id: utilService.makeId(),
-        isPinned: false,
-        info: {
-            todos: formattedTodos
-        },
-        style: {
-            backgroundColor: "#FFF475" // ADD FUNTIONALITY
-        }
-
+    else if (noteType === 'NoteVideo') {
+        formmatedNote.type = noteType;
+        formmatedNote.info.url = keepTxt
     }
+
     const gNotesCopy = [...gNotes]
-    gNotesCopy.unshift(note)
-    gNotes = gNotesCopy;
-    console.log(gNotes);
-    _saveNotesToStorage()
-}
-
-function formatText(noteType, keepTxt) {
-    const note = {
-        type: noteType,
-        id: utilService.makeId(),
-        isPinned: false,
-        info: {
-            txt: keepTxt
-        },
-        style: {
-            backgroundColor: "#FFF475" // ADD FUNTIONALITY
-        }
-    }
-    const gNotesCopy = [...gNotes]
-    gNotesCopy.unshift(note)
+    gNotesCopy.unshift(formmatedNote)
     gNotes = gNotesCopy;
     console.log(gNotes);
     _saveNotesToStorage()
 
 }
+
+// function formatTodos(noteType, keepTxt) {
+//     const userTodos = keepTxt.split(',')
+//     const formattedTodos = []
+//     userTodos.forEach(todo => {
+//         formattedTodos.push({
+//             txt: todo,
+//             doneAt: null,
+//             id: utilService.makeId()
+//         })
+//     })
+//     const note = {
+//         type: noteType,
+//         id: utilService.makeId(),
+//         isPinned: false,
+//         info: {
+//             todos: formattedTodos
+//         },
+//         style: {
+//             backgroundColor: "#FFF475" // ADD FUNTIONALITY
+//         }
+
+//     }
+//     const gNotesCopy = [...gNotes]
+//     gNotesCopy.unshift(note)
+//     gNotes = gNotesCopy;
+//     console.log(gNotes);
+//     _saveNotesToStorage()
+// }
+
+// function formatText(noteType, keepTxt) {
+//     const note = {
+//         type: noteType,
+//         id: utilService.makeId(),
+//         isPinned: false,
+//         info: {
+//             txt: keepTxt
+//         },
+//         style: {
+//             backgroundColor: "#FFF475" // ADD FUNTIONALITY
+//         }
+//     }
+//     const gNotesCopy = [...gNotes]
+//     gNotesCopy.unshift(note)
+//     gNotes = gNotesCopy;
+//     console.log(gNotes);
+//     _saveNotesToStorage()
+
+// }
 
 function formatImg(noteType, keepTxt) {
     const note = {

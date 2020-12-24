@@ -40,8 +40,9 @@ input {
     outline: none;
 }
 
-a {
+a, a:visited {
     text-decoration: none;
+    color: initial;
 }
 
 textarea {

@@ -17,6 +17,7 @@ export function RootCmp() {
                 <Switch>
                     <Route path="/email/:emailId" component={EmailDetails} />
                     <Route path="/email" component={EmailApp} />
+                    {/* <Route path="/keep/:keepId?" component={KeepDetails} /> */}
                     <Route path="/keep" component={KeepApp} />
                     <Route path='/about' component={About} />
                     <Route path='/' component={HomePage} />
