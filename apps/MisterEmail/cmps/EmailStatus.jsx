@@ -1,3 +1,7 @@
-export function EmailStatus({email}) {
-    return <div><h1>Hello From EmailStatus</h1></div>
+import { emailService } from '../services/emailService.js'
+
+
+export function EmailStatus({ email }) {
+    const emailsReadCount = emailService.getReadEmailsCount();
+    return <div className="email-status"><h1>Emails Read: {emailsReadCount}</h1></div>
 }

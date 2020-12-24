@@ -6,19 +6,25 @@ export const emailService = {
     getById,
     query,
     markEmailAsRead,
-    addSentEmail
+    addSentEmail,
+    getReadEmailsCount
 }
 
 const EMAILS_KEY = 'emailsDB'
 const SENT_EMAILS_KEY = 'sentEmailsDB'
 var gEmails = []
 _createEmails()
-var gSentEmails= []
+var gSentEmails = []
 _getSentEmails()
 
 function query() {
     return Promise.resolve(gEmails)
 }
+
+function getReadEmailsCount() {
+    return gEmails.filter(email => email.isRead).length
+}
+
 
 function addSentEmail(email) {
     const emailToAdd = {

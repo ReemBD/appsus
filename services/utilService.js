@@ -1,7 +1,8 @@
 export const utilService = {
     makeId,
     formatTime,
-    getRandomInteger
+    getRandomInteger,
+    formatHours
 };
 
 function makeId(length = 6) {
@@ -15,11 +16,19 @@ function makeId(length = 6) {
     return txt;
 }
 
+
 function formatTime(timestamp) {
     const date = new Date(timestamp).toLocaleDateString();
     return date;
 }
 
+function formatHours(date) {
+    const hours = date.getHours()
+    const minutes = date.getMinutes()
+    const formattedHours = (hours > 9) ? hours : '0' + hours
+    const formattedMins = (minutes > 9) ? minutes : '0' + minutes;
+    return formattedHours + ':' + formattedMins
+}
 
 function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
