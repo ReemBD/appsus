@@ -8,9 +8,8 @@ export class NoteTodos extends React.Component {
                     <div className="todos-container">
 
                         {note.info.todos.map(todo => {
-                            const todoTxt = todo.txt.trim()
                             console.log(todo.id)
-                            return <li key={todo.id}>{todoTxt}</li>
+                            return <li key={todo.id}>{todo.txt.trim()}</li>
                         })}
                     </div>
                     <NoteActions note={note} onDelete={onDelete} />
