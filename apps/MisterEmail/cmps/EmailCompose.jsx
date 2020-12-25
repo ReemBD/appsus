@@ -1,4 +1,4 @@
-import { emailService } from '../services/emailService.js'
+import { sentEmailService } from '../services/sentEmails.js'
 
 export class EmailCompose extends React.Component {
     state = {
@@ -27,7 +27,7 @@ export class EmailCompose extends React.Component {
 
     onSendEmail = (ev, email) => {
         ev.preventDefault()
-        emailService.addSentEmail(email)
+        sentEmailService.addSentEmail(email)
         this.setState({
             emailToSend: {
                 to: '',
@@ -47,15 +47,18 @@ export class EmailCompose extends React.Component {
     render() {
         const { emailToSend, isClosing } = this.state;
         return <form className={`compose-email-form flex flex-column ${isClosing && 'hide-modal'}`} onSubmit={(ev) => { this.onSendEmail(ev, emailToSend) }}>
-            <button className="close-btn" onClick={this.onCloseWin}>X</button>
-            <input type="email" name="to" id="" placeholder="To:" ref={this.elInputRef} />
-            <input type="text" name="copy" placeholder="Cc:" />
-            <input value={this.state.emailToSend.subject} required
+            <nav className="nav flex space-between">
+                <h1 className="title">New Message</h1>
+                <button className="close-btn" onClick={this.onCloseWin}><i className="fas fa-times"></i></button>
+            </nav>
+            <input className="field" type="email" name="to" id="" placeholder="To:" ref={this.elInputRef} />
+            <input className="field" type="text" name="copy" placeholder="Cc:" />
+            <input className="field" value={this.state.emailToSend.subject} required
                 placeholder="Subject:" type="text" name="subject"
                 onChange={this.onInputChange} />
 
             <textarea value={this.state.emailToSend.body}
-                rows="15" cols="15"
+                rows="15" cols="15" className="field"
                 placeholder="What would you like to write?" type="text" name="body"
                 onChange={this.onInputChange} />
 

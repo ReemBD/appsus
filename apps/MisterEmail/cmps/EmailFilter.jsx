@@ -1,15 +1,23 @@
+import { emailService } from "../services/emailService"
+
 export class EmailFilter extends React.Component {
 
     state = {
         filterBy: {
             text: '',
             readStatus: ''
-        }
+        },
+        isDropDownOpen: false
     }
 
     handleChange = (ev) => {
         const filterBy = { ...this.state.filterBy }
-        filterBy[ev.target.name] = ev.target.value;
+        if (ev.target.value) {
+            filterBy[ev.target.name] = ev.target.value
+        }
+        else {
+            filterBy[ev.target.dataset.name] = ev.target.dataset.value
+        }
         this.setState({ filterBy }, () => {
             this.props.onSetFilter(this.state.filterBy);
         })
@@ -28,20 +36,30 @@ export class EmailFilter extends React.Component {
         but with select i need another method. what do i need with select?
         the trouble is that select should define 
     */
-
+    toggleDropDown = () => {
+        const { isDropDownOpen } = this.state
+        this.setState({ isDropDownOpen: !isDropDownOpen })
+    }
 
     render() {
+        const { isDropDownOpen } = this.state
         return (
             <section className="email-filter flex">
-                <input type="text" name="text"
-                    value={this.state.filterBy.text}
-                    placeholder="Search"
-                    onChange={this.handleChange} />
-                <select onChange={this.handleChange} name="readStatus" id="">
-                    <option value="all">All</option>
+                 <div className="dropdown-container">
+                    <i className="fas fa-ellipsis-v cursor-pointer dropdown-icon" onClick={this.toggleDropDown}></i>
+                    <ul className={`filter-dropdown ${!isDropDownOpen && 'display-none'}`}>
+                        <li data-value="all" data-name="readStatus" onClick={this.handleChange}>All</li>
+                        <li data-value="read" data-name="readStatus" onClick={this.handleChange}>Read {`(${emailService.getReadEmailsCount()})`}</li>
+                        <li data-value="unread" data-name="readStatus" onClick={this.handleChange}>Unread {`(${emailService.getUnReadEmailsCount()})`}</li>
+                    </ul>
+                </div>
+                <input type="text" name="text" className="search" value={this.state.filterBy.text} placeholder="Search" onChange={this.handleChange} />
+               
+                {/* <select onChange={this.handleChange} name="readStatus" className="cursor-pointer" id="">
+                    <option value="all" className="cursor-pointer">All</option>
                     <option value="read">Read</option>
                     <option value="unread">Unread</option>
-                </select>
+                </select> */}
             </section>
         )
     }

@@ -1,0 +1,22 @@
+.email-details .main-container {
+    flex-grow: 4;
+    border-radius: 10px;
+    background-color: #B3E5FC;
+    padding: 10px 2px;
+}
+
+.email-details .main-container>*{
+margin-bottom: 20px;
+border-bottom: 1px solid #BDBDBD;
+padding-bottom: 15px;
+}
+
+.email-details .email-subject {
+    font-size: 2em;
+}
+
+.email-details .delete-btn {
+    align-self: flex-start;
+    background-color: transparent;
+    border-bottom: none;
+}

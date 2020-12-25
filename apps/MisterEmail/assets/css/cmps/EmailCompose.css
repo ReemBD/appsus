@@ -1,29 +1,76 @@
-
 .email-app .compose-email-form {
     position: fixed;
-    background-color: green;
+    background-color: #ffffff;
+    justify-content: flex-start;
+    align-items: flex-start;
     left: 50%;
-    width: 80vw;
+    width: 50vw;
     bottom: 0;
     transform: translateX(-50%);
-    padding: 40px;
+    padding: 60px 15px 40px;
     animation-name: show-modal;
     animation-duration: 1s;
+    border-radius: 5px 5px 0 0;
+    
+    box-shadow: 0px 5px 12px 2px #6e6363;
+}
+.email-app .compose-email-form .nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 15px;
+    width: 100%;
+    color: #fff;
+    background-color: #212121;
+    border-radius: 5px 5px 0 0;
+}
+.email-app .compose-email-form>*.field {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #cacaca;
+    width: 100%;
+    padding-bottom: 10px;
+    font-family: roboto;
+    
 }
 
 .email-app .compose-email-form>*:not(:last-child) {
     margin-bottom: 20px;
+    
 }
 
+.email-app .compose-email-form .send-btn {
+    align-self: flex-end;
+    padding: 10px 2px;
+    width: 100px;
+    background-color: transparent;
+    border-radius: 20px;
+    border: 2px solid #212121;
+
+    transition: all .3s;
+    /* color: white; */
+}
+
+.email-app .compose-email-form .send-btn:hover {
+    background-color: #212121;
+    color: white;
+}
 .email-app .compose-email-form .close-btn {
-    color: red;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+   background-color: transparent;
+   color: #BDBDBD;
+   align-self: center;
+   font-size: 1.2em;
+}
+.email-app .compose-email-form .close-btn:hover {
+    color: white;
 }
 
+.compose-btn:hover {
+    background-color: #fafafb;
+    box-shadow: 0 1px 5px 0 rgba(60, 64, 67, 0.302), 0 4px 8px 5px rgba(60, 64, 67, 0.149);
+}
 .hide-modal {
-    background-color: red;
     animation-name: hide-modal !important;
     animation-duration: 1s;
 }

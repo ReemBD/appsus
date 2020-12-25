@@ -1,6 +1,6 @@
 import { emailService } from '../services/emailService.js'
 import { utilService } from '../../../services/utilService.js'
-
+import { Aside } from '../cmps/Aside.jsx'
 
 export class EmailDetails extends React.Component {
     state = {
@@ -25,11 +25,17 @@ export class EmailDetails extends React.Component {
     render() {
         const { email } = this.state
         if (!email) return <div></div>
-        return <div className="email-details">
-            <h1 className="email-subject">{email.subject}</h1>
-            <p>{email.body}</p>
-            <h3>Sent At: {utilService.formatTime(email.sentAt)}</h3>
-            <button className="delete-btn" onClick={() => { this.onRemoveEmail(email.id) }}>Delete</button>
+        return <div className="email-details flex">
+            <Aside />
+            <div className="main-container flex flex-column">
+                <nav className="flex space-between">
+                <h1 className="email-subject">{email.subject}</h1>
+                <button className="delete-btn" onClick={() => { this.onRemoveEmail(email.id) }}><i class="far fa-trash-alt delete-icon"></i></button>
+                </nav>  
+                <p>{email.body}</p>
+                <h3>{utilService.formatTime(email.sentAt)}</h3>
+                
+            </div>
         </div>
     }
 }

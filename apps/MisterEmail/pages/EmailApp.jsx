@@ -2,8 +2,9 @@ import { EmailList } from '../cmps/EmailList.jsx'
 import { EmailStatus } from '../cmps/EmailStatus.jsx'
 import { EmailCompose } from '../cmps/EmailCompose.jsx'
 import { EmailFilter } from '../cmps/EmailFilter.jsx'
-
+import { Aside } from '../cmps/Aside.jsx'
 import { emailService } from '../services/emailService.js'
+import { sentEmailService } from '../services/sentEmails.js'
 
 
 
@@ -19,7 +20,7 @@ export class EmailApp extends React.Component {
 
     loadEmails = () => {
         emailService.query().then(emails => {
-            this.setState({ emails }, () => console.log(this.state.emails));
+            this.setState({ emails });
         })
     }
 
@@ -29,9 +30,7 @@ export class EmailApp extends React.Component {
     }
 
     get emailsForDisplay() {
-        // return this.state.emails;
         const { filterBy } = this.state;
-        console.log('filterBy: ', filterBy);
         const filterRegex = new RegExp(filterBy.text, 'i')
         switch (filterBy.readStatus) {
             case 'read': return this.state.emails.filter(email => email.isRead).filter(email => filterRegex.test(email.subject + email.body))
@@ -60,7 +59,12 @@ export class EmailApp extends React.Component {
     }
 
     onSetFilter = (filterBy) => {
-        this.setState({ filterBy }, () => console.log('(from emailApp) this.state.filterBy: ', this.state.filterBy))
+        this.setState({ filterBy })
+    }
+
+    composeEmail = () => {
+        const { isComposeOpen } = this.state
+        this.setState({ isComposeOpen: true })
     }
 
     render() {
@@ -68,21 +72,10 @@ export class EmailApp extends React.Component {
         const { isComposeOpen } = this.state
         return (
             <div className="email-app">
-                <EmailFilter onSetFilter={this.onSetFilter} />
                 <div className="email-main-container flex">
-                    <div className="aside flex flex-column">
-                        <button className="compose-btn cursor-pointer" onClick={() => { this.setState({ isComposeOpen: true }) }}>Compose</button>
-                        <ul className="categories flex flex-column">
-                            <li className="cursor-pointer"><a href="#">Inbox</a></li>
-                            <li className="cursor-pointer"><a href="#">Starred</a> </li>
-                            <li className="cursor-pointer"><a href="#">Sent Mail</a></li>
-                            <li className="cursor-pointer"><a href="#">Drafts</a></li>
-                        </ul>
-                        <EmailStatus />
-                    </div>
-                    <EmailList toggleMarked={this.toggleMarked} toggleFav={this.toggleFav} openEmail={this.openEmail} emails={emailsForDisplay} />
+                    <Aside onComposeEmail={this.composeEmail} />
+                    <EmailList onSetFilter={this.onSetFilter} toggleMarked={this.toggleMarked} toggleFav={this.toggleFav} openEmail={this.openEmail} emails={emailsForDisplay} />
                     {isComposeOpen && <EmailCompose closeComposeWin={this.closeComposeWin} />}
-
                     <div>
                     </div>
                 </div>
