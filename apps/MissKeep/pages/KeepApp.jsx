@@ -68,14 +68,19 @@ export class KeepApp extends React.Component {
         this.setState({ filterBy })
     }
 
+    onTodoChange = (todos, noteId) => {
+        keepService.todoUpdate(todos, noteId)
+            .then(this.loadNotes)
+    }
+
     render() {
         const notesForDisplay = this.notesForDisplay;
         return (
             <div className='keep-app keep-main-layout'>
                 <NoteInput onAdd={this.onNoteAdd} />
                 <NoteFilter setFilter={this.onSetFilter} />
-                <PinnedNotesList notes={notesForDisplay} onDelete={this.onNoteDelete} onEdit={this.onNoteEdit} onColor={this.onNoteColorChange} onPin={this.onNotePin} />
-                <NoteList notes={notesForDisplay} onDelete={this.onNoteDelete} onEdit={this.onNoteEdit} onColor={this.onNoteColorChange} onPin={this.onNotePin} />
+                <PinnedNotesList notes={notesForDisplay} onDelete={this.onNoteDelete} onEdit={this.onNoteEdit} onColor={this.onNoteColorChange} onPin={this.onNotePin} onTodoChange={this.onTodoChange} />
+                <NoteList notes={notesForDisplay} onDelete={this.onNoteDelete} onEdit={this.onNoteEdit} onColor={this.onNoteColorChange} onPin={this.onNotePin} onTodoChange={this.onTodoChange} />
             </div>
         )
     }

@@ -9,4 +9,11 @@
     border: none;
     border-bottom: 3px solid #eee;
     padding-bottom: 5px;
+
+    transition: all .3s;
+}
+
+.note-filter input:focus {
+    border-bottom: 3px solid #333;
+
 }

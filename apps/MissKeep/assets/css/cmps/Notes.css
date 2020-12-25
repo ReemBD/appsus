@@ -58,16 +58,13 @@
   background: transparent;
 }
 
-.note-todos {
-  /* width: 230px; */
-}
-
-.note-todos li {
-  list-style: inside;
-}
 
 .note-todos .todos-container li:last-of-type{
   margin-bottom: 10px;
+}
+
+.todos-container li {
+  max-height: min-content;
 }
 
 .note-video {
@@ -136,4 +133,16 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 20px;
+}
+
+.todo-container i {
+  position: relative;
+  left: -10px;
+  opacity: 0.57;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.todo-container i:hover {
+  opacity: 1;
 }

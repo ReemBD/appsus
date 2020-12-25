@@ -7,6 +7,7 @@ export const keepService = {
     deleteNote,
     updateNote,
     pinNote,
+    todoUpdate,
     changeColor,
     getNoteById,
 
@@ -123,6 +124,15 @@ function pinNote(noteId) {
     _saveNotesToStorage()
     return Promise.resolve()
 
+}
+
+function todoUpdate(todos, noteId) {
+    const noteToUpdateIdx = getNoteIdxById(noteId)
+    const notes = [...gNotes]
+    notes[noteToUpdateIdx].info.todos = todos
+    gNotes = notes
+    _saveNotesToStorage()
+    return Promise.resolve()
 }
 function getNoteById(noteId) {
     const note = gNotes.find(note => note.id === noteId)

@@ -9,7 +9,7 @@ export class PinnedNotesList extends React.Component {
     }
 
     render() {
-        const { notes, onDelete, onEdit, onColor, onPin } = this.props
+        const { notes, onDelete, onEdit, onColor, onPin, onTodoChange } = this.props
 
         return (
             <section className="pinned-notes-container main-layout">
@@ -19,7 +19,7 @@ export class PinnedNotesList extends React.Component {
                         if (!note.isPinned) {
                             return
                         } else {
-                            return <NotePinnedPreview key={note.id} note={note} onDelete={onDelete} onEdit={onEdit} onColor={onColor} onPin={onPin} />
+                            return <NotePinnedPreview key={note.id} note={note} onDelete={onDelete} onEdit={onEdit} onColor={onColor} onPin={onPin} onTodoChange={onTodoChange} />
 
                         }
                     })}
