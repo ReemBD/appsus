@@ -1,12 +1,14 @@
 import { KeepInput } from '../cmps/KeepInput.jsx'
 import { keepService } from '../services/keepService.js'
 import { NoteList } from '../cmps/NoteList.jsx'
+import { PinnedNotesList } from '../cmps/PinnedNotesList.jsx'
 import { utilService } from '../../../services/utilService.js'
 
 export class KeepApp extends React.Component {
 
     state = {
         notes: [],
+        pinnedNotes: []
     }
 
     componentDidMount() {
@@ -25,7 +27,6 @@ export class KeepApp extends React.Component {
 
 
     onNoteAdd = (note) => {
-        console.log('From app', note)
         keepService.saveNote(note)
         this.loadNotes()
         // .then(notes => {
@@ -37,7 +38,6 @@ export class KeepApp extends React.Component {
     }
 
     onNoteDelete = (noteId) => {
-        console.log(noteId)
         keepService.deleteNote(noteId)
             .then(this.loadNotes)
 
@@ -49,11 +49,14 @@ export class KeepApp extends React.Component {
     }
 
     onNoteColorChange = (color, noteId) => {
-        console.log(color, noteId);
         keepService.changeColor(color, noteId)
             .then(this.loadNotes())
             .then(console.log(this.state.notes))
+    }
 
+    onNotePin = (noteId) => {
+        keepService.pinNote(noteId)
+            .then(this.loadNotes())
     }
 
     render() {
@@ -61,7 +64,8 @@ export class KeepApp extends React.Component {
         return (
             <div className='keep-app keep-main-layout'>
                 <KeepInput onAdd={this.onNoteAdd} />
-                <NoteList notes={notesForDisplay} onDelete={this.onNoteDelete} onEdit={this.onNoteEdit} onColor={this.onNoteColorChange} />
+                <PinnedNotesList notes={notesForDisplay} onDelete={this.onNoteDelete} onEdit={this.onNoteEdit} onColor={this.onNoteColorChange} onPin={this.onNotePin} />
+                <NoteList notes={notesForDisplay} onDelete={this.onNoteDelete} onEdit={this.onNoteEdit} onColor={this.onNoteColorChange} onPin={this.onNotePin} />
             </div>
         )
     }

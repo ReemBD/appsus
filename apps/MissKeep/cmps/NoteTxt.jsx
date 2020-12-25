@@ -24,7 +24,7 @@ export class NoteTxt extends React.Component {
 
 
     render() {
-        const { note, onDelete, onColor } = this.props
+        const { note, onDelete, onColor, onPin } = this.props
         const noteStyle = {
             background: note.style.backgroundColor
         }
@@ -32,7 +32,7 @@ export class NoteTxt extends React.Component {
             <div className='note note-container' style={noteStyle}>
                 <textarea onChange={this.handleChange} spellCheck="false" value={note.info.txt} placeholder="Empty Note" name="txt" className=' note-text'>{note.info.txt}
                 </textarea>
-                <NoteActions note={note} onDelete={onDelete} onColor={onColor} />
+                <NoteActions note={note} onDelete={onDelete} onColor={onColor} onPin={onPin} />
 
             </div>
         )

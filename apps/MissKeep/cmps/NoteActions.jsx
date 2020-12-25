@@ -38,15 +38,23 @@ export class NoteActions extends React.Component {
         </div>
     }
 
+    onNotePin = () => {
+        this.props.onPin(this.props.note.id)
+    }
+
+
+
 
     render() {
-
+        const pinStyle = {
+            color: (this.props.note.isPinned) ? 'red' : 'initial'
+        }
         return (
             <div className="actions-container">
                 <section className="note-actions">
 
-                    <div title="Pin note" className="note-pin-btn">
-                        <i className="fas fa-thumbtack"></i>
+                    <div title="Pin note" className="note-pin-btn" onClick={this.onNotePin}>
+                        <i style={pinStyle} className="fas fa-thumbtack"></i>
                     </div>
                     {/* <div className="note-edit-btn"><i className="far fa-edit"></i></div> */}
                     <div title="Send as mail" className="note-mail-btn"><i className="far fa-paper-plane"></i></div>

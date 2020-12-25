@@ -125,3 +125,15 @@
 .color-palette .red {
   background: #FFBDA3;
 }
+
+.pinned-notes-container h3 {
+  text-align: center;
+}
+
+.pinned-note-list {
+  width: 85%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}

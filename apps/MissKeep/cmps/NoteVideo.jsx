@@ -1,7 +1,7 @@
 import { NoteActions } from './NoteActions.jsx'
 export class NoteVideo extends React.Component {
     render() {
-        const { note, onDelete } = this.props
+        const { note, onDelete, onPin } = this.props
         return (
             <section>
 
@@ -11,7 +11,7 @@ export class NoteVideo extends React.Component {
                         <iframe width="400" height="250"
                             src={note.info.url}>
                         </iframe>
-                        <NoteActions note={note} onDelete={onDelete} />
+                        <NoteActions note={note} onDelete={onDelete} onPin={onPin} />
                     </div>
                 </div>
             </section>
