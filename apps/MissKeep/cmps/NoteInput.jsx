@@ -1,5 +1,5 @@
 
-export class KeepInput extends React.Component {
+export class NoteInput extends React.Component {
     state = {
         inputInfo: {
             type: 'text',

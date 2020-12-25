@@ -1,3 +1,4 @@
 @import './cmps/KeepApp.css';
-@import './cmps//KeepInput.css';
+@import './cmps//NoteInput.css';
 @import './cmps//Notes.css';
+@import './cmps/NoteFilter.css';

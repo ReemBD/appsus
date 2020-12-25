@@ -1,14 +1,17 @@
-import { KeepInput } from '../cmps/KeepInput.jsx'
+import { NoteInput } from '../cmps/NoteInput.jsx'
 import { keepService } from '../services/keepService.js'
 import { NoteList } from '../cmps/NoteList.jsx'
 import { PinnedNotesList } from '../cmps/PinnedNotesList.jsx'
-import { utilService } from '../../../services/utilService.js'
+import { NoteFilter } from '../cmps/NoteFilter.jsx'
 
 export class KeepApp extends React.Component {
 
     state = {
         notes: [],
-        pinnedNotes: []
+        pinnedNotes: [],
+        filterBy: {
+            txt: ''
+        }
     }
 
     componentDidMount() {
@@ -21,7 +24,9 @@ export class KeepApp extends React.Component {
     }
 
     get notesForDisplay() {
-        return this.state.notes
+        const { filterBy } = this.state
+        const filterRegex = new RegExp(filterBy.txt, 'i')
+        return this.state.notes.filter(note => filterRegex.test(note.info.txt))
     }
 
 
@@ -59,11 +64,16 @@ export class KeepApp extends React.Component {
             .then(this.loadNotes())
     }
 
+    onSetFilter = (filterBy) => {
+        this.setState({ filterBy })
+    }
+
     render() {
         const notesForDisplay = this.notesForDisplay;
         return (
             <div className='keep-app keep-main-layout'>
-                <KeepInput onAdd={this.onNoteAdd} />
+                <NoteInput onAdd={this.onNoteAdd} />
+                <NoteFilter setFilter={this.onSetFilter} />
                 <PinnedNotesList notes={notesForDisplay} onDelete={this.onNoteDelete} onEdit={this.onNoteEdit} onColor={this.onNoteColorChange} onPin={this.onNotePin} />
                 <NoteList notes={notesForDisplay} onDelete={this.onNoteDelete} onEdit={this.onNoteEdit} onColor={this.onNoteColorChange} onPin={this.onNotePin} />
             </div>

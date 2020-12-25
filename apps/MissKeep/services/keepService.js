@@ -44,7 +44,7 @@ var demoNotes = [
         id: 3,
         isPinned: false,
         info: {
-            label: "How was it:",
+            txt: 'Buy a birthday present, Renew passport',
             todos: [
                 { txt: "Buy a birthday present", doneAt: null, id: utilService.makeId() },
                 { txt: "Renew passport", doneAt: 187111111, id: utilService.makeId() }
@@ -152,6 +152,7 @@ function formatNote(note) {
 
     if (noteType === 'NoteTodos') {
         const formattedTodos = []
+        formmatedNote.info.txt = keepTxt // To allow easy filtering in todos
         const userTodos = keepTxt.split(',')
         userTodos.forEach(todo => {
             formattedTodos.push({

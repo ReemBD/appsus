@@ -4,6 +4,11 @@
     display: flex;
 }
 
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
 .space-between {
     justify-content: space-between;
 }
