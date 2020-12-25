@@ -120,7 +120,7 @@ function _saveEmailsToStorage() {
 function _getDemoEmails() {
     return [
         { id: 'i101', subject: 'I Love You', body: 'Hey Its Emma Watson and wanted to say you look really hot in the pictures', from: 'Emma Watson', isFav: true, isMarked: false, isRead: false, sentAt: Date.now() },
-        { id: 'i102', subject: 'Wow', body: 'Your code is amazing. I wish I could write code like you.', from: 'Yaron Biton', isMarked: false, isFav: false, isRead: false, sentAt: Date.now() },
+        { id: 'i102', subject: 'Wow', body: 'Your code is amazing. I wish I could write code like you.', from: 'Yaron Biton', isMarked: false, isFav: true, isRead: false, sentAt: Date.now() },
         { id: 'i103', subject: 'I Am Real', body: 'Hey Its Mr. Puki. Just so you know - I am Real.', from: 'Puki', isFav: false, isMarked: false, isRead: false, sentAt: Date.now() },
         { id: 'i104', subject: 'PLZ', body: 'PLEASE BE MY PARTNER FOR THIS SPRINT', from: 'every coder ever', isFav: false, isMarked: false, isRead: false, sentAt: Date.now() },
         { id: 'i105', subject: 'Congrats', body: 'You Have won 1 million shekels!', from: 'Ariella', isFav: false, isMarked: false, isRead: false, sentAt: Date.now() },
