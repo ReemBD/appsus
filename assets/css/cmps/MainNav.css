@@ -9,7 +9,8 @@
     right: 0;
     left: 0;
     background-color: #202124;
-    z-index: 100000;
+    z-index: 10;
+    border-bottom: 1px solid #eee;
 }
 
 .header-container a {

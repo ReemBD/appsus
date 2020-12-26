@@ -8,8 +8,10 @@ export class HomePage extends React.Component {
 
     render() {
         return (
-            <section>
-                <h1>Homepage</h1>
+            <section className="home-page">
+                <img src="../assets/img/horse_hero.png" alt="" />
+                <h1>Appsus</h1>
+                <h4>All your favorite apps in one place.</h4>
             </section>
         )
     }

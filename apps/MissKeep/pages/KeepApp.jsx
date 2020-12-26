@@ -76,7 +76,7 @@ export class KeepApp extends React.Component {
     render() {
         const notesForDisplay = this.notesForDisplay;
         return (
-            <div className='keep-app keep-main-layout'>
+            <div className='keep-app keep-main-layout swing-in-top-fwd'>
                 <NoteInput onAdd={this.onNoteAdd} />
                 <NoteFilter setFilter={this.onSetFilter} />
                 <PinnedNotesList notes={notesForDisplay} onDelete={this.onNoteDelete} onEdit={this.onNoteEdit} onColor={this.onNoteColorChange} onPin={this.onNotePin} onTodoChange={this.onTodoChange} />

@@ -7,8 +7,9 @@
 .note-filter input {
     width: 100%;
     border: none;
-    border-bottom: 3px solid #eee;
+    border-bottom: 3px solid #cecdcd;
     padding-bottom: 5px;
+    background-color: inherit;
 
     transition: all .3s;
 }

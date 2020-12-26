@@ -70,7 +70,8 @@ export class NoteTodos extends React.Component {
                                         onChange={this.handleChange}
                                         spellCheck="false"
                                         name="txt"
-                                    >{todo.txt.trim()}
+                                        defaultValue={todo.txt.trim()}
+                                    >
                                     </textarea>
                                     <i style={todo.doneAt ? { color: 'green' } : {}} onClick={(e) => this.onCheckboxClick(todo.id, e)} className="far fa-check-square"></i>
                                 </div>

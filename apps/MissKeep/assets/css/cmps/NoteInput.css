@@ -3,7 +3,7 @@
 .keep-input-container {
     display: flex;
     align-items: center;
-    border: 1px solid #eee;
+    border: 1px solid #202124;
     border-radius: 3px;
     padding: 20px ;
     width: 65%;
@@ -24,6 +24,7 @@
 .keep-input input {
     border: none;
     width: 100%;
+    background-color: inherit;
 }
 
 

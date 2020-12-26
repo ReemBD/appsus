@@ -20,7 +20,7 @@ var demoNotes = [
     {
         type: "NoteText",
         id: 1,
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Netflix password: password"
         },
@@ -43,7 +43,7 @@ var demoNotes = [
     {
         type: "NoteTodos",
         id: 3,
-        isPinned: false,
+        isPinned: true,
         info: {
             txt: 'Buy a birthday present, Renew passport',
             todos: [
@@ -61,6 +61,28 @@ var demoNotes = [
         isPinned: false,
         info: {
             url: 'https://www.youtube.com/embed/tgbNymZ7vqY'
+        },
+        style: {
+            backgroundColor: "linear-gradient(#F9EFAF, #F7E98D)"
+        }
+    },
+    {
+        type: "NoteVideo",
+        id: 5,
+        isPinned: true,
+        info: {
+            url: 'https://giphy.com/embed/ukMiDlCmdv2og'
+        },
+        style: {
+            backgroundColor: "linear-gradient(#F9EFAF, #F7E98D)"
+        }
+    },
+    {
+        type: "NoteImg",
+        id: 6,
+        isPinned: false,
+        info: {
+            url: 'https://images.pexels.com/photos/4297812/pexels-photo-4297812.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
         },
         style: {
             backgroundColor: "linear-gradient(#F9EFAF, #F7E98D)"

@@ -19,7 +19,7 @@ export class NoteFilter extends React.Component {
             <div className="note-filter flex flex-center">
                 <input type="text" name="txt"
                     value={this.state.filterBy.txt}
-                    placeholder="Filter by text"
+                    placeholder="Search"
                     autoComplete="off"
                     onChange={this.handleChange}
                 />

@@ -21,7 +21,7 @@ export class NoteInput extends React.Component {
         if (selectedType === 'NoteText') this.updateState('text', 'Write a note', selectedType)
         else if (selectedType === 'NoteImg') this.updateState('text', 'Paste Image Link', selectedType)
         else if (selectedType === 'NoteTodos') this.updateState('text', 'Write todos seperated by comma', selectedType)
-        else if (selectedType === 'NoteVideo') this.updateState('text', 'Paste Youtube Link', selectedType)
+        else if (selectedType === 'NoteVideo') this.updateState('text', 'Paste Youtube/Giphy Link', selectedType)
         this.refInput.current.focus()
     }
 
