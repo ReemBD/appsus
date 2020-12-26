@@ -16,6 +16,17 @@ export class EmailApp extends React.Component {
         isComposeOpen: false,
     }
 
+    componentDidMount() {
+        const urlParams = new URLSearchParams(window.location.href);
+        const myParam = urlParams.get('compose')
+        console.log(myParam);
+        if (myParam === 'new') {
+            this.composeEmail()
+        }
+        console.log('myParam: ', myParam);
+        this.loadEmails();
+    }
+
     loadEmails = () => {
         emailService.query().then(emails => {
             this.setState({ emails });
@@ -48,15 +59,7 @@ export class EmailApp extends React.Component {
         this.loadEmails();
     }
 
-    componentDidMount() {
-        const urlParams = new URLSearchParams(window.location.href);
-        const myParam = urlParams.get('compose')
-        if (myParam === 'new') {
-            this.composeEmail()
-        }
-        console.log('myParam: ', myParam);
-        this.loadEmails();
-    }
+
 
 
     closeComposeWin = () => {
