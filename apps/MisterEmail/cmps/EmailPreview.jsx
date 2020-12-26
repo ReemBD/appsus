@@ -29,14 +29,13 @@ export class EmailPreview extends React.Component {
     }
 
     render() {
-        const { email } = this.props
+        const { email, onRemoveEmail } = this.props
         return <Link to={`email/${email.id}`}> <div className={`email-preview flex space-around ${email.isRead && 'read'}`} onClick={this.onOpenEmail}>
             <i onClick={(ev) => {
-                
                 ev.preventDefault();
                 this.onToggleMarked(ev)
                 emailService.getMarkedEmailsCount()
-            }} className={`far my-check-icon fa-square isMarked-btn ${email.isMarked && 'marked'}`}></i>
+            }} className={`far my-check-icon fa-square ${email.isMarked && 'marked'}`}></i>
             <StarIcon onToggleFav={(ev) => {
                 ev.preventDefault();
                 this.onToggleFav(ev)
@@ -44,6 +43,12 @@ export class EmailPreview extends React.Component {
             <h1 className="subject">{email.subject}</h1>
             <h3 className="body">{email.body}</h3>
             <h3 className="from">{email.from}</h3>
+            <div className="hover-buttons flex space-between">
+                <i className="far fa-trash-alt display-none my-delete-icon" onClick={(ev) => { 
+                    ev.preventDefault()
+                    onRemoveEmail(email.id) }} title="Delete"></i>
+                <i className="far fa-envelope display-none my-unread-icon" title="Unread"></i>
+            </div>
             <h3 className="sent-at">{utilService.formatHours(new Date(email.sentAt))}</h3>
         </div>
         </Link >

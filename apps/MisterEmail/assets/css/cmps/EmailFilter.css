@@ -1,6 +1,7 @@
 .email-filter {
     margin-bottom: 20px;
     padding: 3px;
+    color: white;
 }
 
 .email-filter .dropdown-container {
@@ -13,8 +14,9 @@
     user-select: none;
     background-color: #448AFF;
     user-select: none;
-    color: white;
-    box-shadow: -2px 0px 7px #9a8f8f;
+    color: inherit;
+    /* box-shadow: -2px 0px 7px #9a8f8f; */
+    box-shadow: -2px 0px 7px #2f2e2e;
     border-radius: 10px;
 }
 
@@ -24,12 +26,10 @@
     cursor: pointer;
     padding: 15px 10px;
     /* border-bottom: 1px solid #BDBDBD; */
-
 }
 
 .email-filter .filter-dropdown li:hover {
-background-color: #03A9F4;
-
+    background-color: #03A9F4;
 }
 
 .email-filter .filter-dropdown li:first-child {
@@ -39,41 +39,46 @@ background-color: #03A9F4;
 .email-filter .filter-dropdown li:last-child {
     border-radius: 0 0 10px 10px;
 }
-.dropdown-icon {
+
+.email-filter .dropdown-icon {
     font-size: 1.5em;
     width: 40px;
     height: 40px;
     padding-top: 8px;
     text-align: center;
-    color: rgb(122, 117, 117);
+    /* color: rgb(122, 117, 117); */
+    color: inherit;
     margin-inline-end: 10px;
-
     transition: all .2s;
 }
 
-.dropdown-icon:hover {
+.email-filter .dropdown-icon:hover {
     border-radius: 999px;
     background-color: #d3c9c9;
 }
 
 .email-filter .search {
-    /* border-radius: 999px; */
+    border-radius: 5px;
     /* padding-inline-start: 10px; */
     padding: 10px 10px;
-    background-color: #f1eded;
+    background-color: #525355;
     border: none;
     width: 280px;
     max-width: 180px;
     transition: max-width .8s, background-color .3s;
 }
 
-.search:focus {
+.email-filter .search:focus {
     max-width: 280px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.404);
     padding: 8px 10px;
     border: 2px solid #dad8d8;
 }
 
-.display-none {
-    display: none;
+.email-filter .search::placeholder {
+    color: white;
+}
+
+.email-filter .search:focus::placeholder {
+    color: #212121;
 }

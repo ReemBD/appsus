@@ -1,0 +1,128 @@
+.email-preview i {
+    color: #757575;
+}
+
+.email-main-container .email-list .email-preview {
+    font-family: roboto-bold;
+    align-items: center;
+    padding: 15px 10px;
+    background-color: #18191d;
+    border-bottom: 1px solid #BDBDBD;
+    color: white;
+    /* transition: box-shadow .2s; */
+}
+
+
+
+.email-main-container .email-list .email-preview:hover {
+    /* background-color: #03A9F4; */
+    box-shadow: 0px 2px 7px #141111;
+    /* box-shadow: 0px 2px 7px #5b5a5a; */
+    background-color: #3d3d3d;
+    /* background-color: #607D8B; */
+    /* background-color: #B3E5FC; */
+}
+
+.email-preview .subject {
+    /* flex-grow: 3; */
+    flex-basis: 15%;
+    margin-inline-end: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.email-preview .body {
+    text-align: left;
+    /* flex-grow: 7; */
+    flex-basis: 30%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.email-preview .from {
+    /* flex-grow: 3; */
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-basis: 15%;
+}
+
+.email-preview .sent-at {
+    /* flex-grow: 3; */
+    text-align: end;
+    flex-basis: 10%;
+}
+
+/* CHECK ICON */
+
+.email-list .email-preview .markAsFav-btn {
+    background-color: transparent;
+}
+
+.email-list .email-preview .my-check-icon {
+    background-color: transparent;
+}
+
+.email-list .email-preview .my-check-icon {
+    font-size: 1.4em;
+    border-radius: 5px;
+}
+
+.email-list .email-preview .my-check-icon:hover {
+    color: #03A9F4;
+    transform: scale(1.05)
+}
+
+.email-list .email-preview .my-check-icon.marked {
+    background-color: #03A9F4;
+    /* background-color: #0288D1; */
+    color: transparent;
+}
+
+.email-list .email-preview.read {
+    font-family: roboto;
+    background-color: #202124;   
+}
+
+/* STAR ICON */
+
+.my-star {
+    font-size: 1.2em;
+    transition: all .2s;
+}
+
+.my-star:hover {
+    transform: scale(1.05);
+    stroke: #03A9F4;
+}
+
+.my-star {}
+
+.w-6 {
+    width: 1.5em;
+}
+
+.h-6 {
+    height: 1.5em;
+}
+
+.hover-buttons {
+    flex-basis: 5%;
+    gap: 20px;
+}
+
+/* DELETE ICON */
+
+.email-preview:hover .my-delete-icon, .email-preview:hover .my-unread-icon {
+    /* display: inline; */
+    display: block;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.email-preview:hover .my-delete-icon:hover, .email-preview:hover .my-unread-icon:hover {
+    color: #03A9F4;
+}

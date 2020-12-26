@@ -1,0 +1,52 @@
+.marked-emails {
+    position: relative;
+}
+
+.marked-emails .my-marked-icon {
+    font-size: 1.6em;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    padding-top: 8px;
+    /* align-self: center; */
+}
+
+.marked-emails .my-marked-icon:hover {
+    border-radius: 999px;
+    background-color: #d3c9c9;
+}
+
+.marked-emails .marked-count {
+    margin-inline-end: 10px;
+    font-size: 1.2em;
+    padding-top: 8px;
+}
+
+.marked-emails .actions-dropdown {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background-color: red;
+    border-radius: 10px;
+    box-shadow: -2px 0px 7px #2f2e2e;
+    user-select: none;
+    background-color: #448AFF;
+}
+
+.marked-emails .actions-dropdown li {
+    width: 200px;
+    padding: 15px 10px;
+    cursor: pointer;
+}
+
+.marked-emails .actions-dropdown li:hover {
+ background-color: #03A9F4;
+}
+
+.marked-emails .actions-dropdown li:first-child {
+    border-radius: 10px 10px 0 0 ;
+} 
+
+.marked-emails .actions-dropdown li:last-child {
+    border-radius: 0 0 10px 10px ;
+} 

@@ -4,7 +4,7 @@ import { EmailStatus } from '../cmps/EmailStatus.jsx'
 
 export function Aside({ onComposeEmail }) {
     return <div className="aside flex flex-column">
-        <button className="compose-btn cursor-pointer" onClick={onComposeEmail}>Compose</button>
+        <button className="compose-btn cursor-pointer" onClick={onComposeEmail}><i className="far fa-edit"></i> Compose</button>
         <ul className="categories flex flex-column">
             <li className="cursor-pointer"><a href="#">Inbox</a></li>
             <li className="cursor-pointer"><a href="#">Starred {`(${emailService.getFavEmailsCount()})`}</a> </li>

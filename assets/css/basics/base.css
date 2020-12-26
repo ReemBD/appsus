@@ -48,3 +48,20 @@ a, a:visited {
 textarea {
     resize: none;
 }
+
+.icon-default {
+    font-size: 1.4em;
+    position: absolute;
+    padding: 10px;
+}
+
+.icon-default:hover {
+    border-radius: 999px;
+    background-color: #d3c9c9;
+}
+
+.my-goback-icon:hover {
+
+    border-radius: 999px;
+    background-color: #d3c9c9;
+}

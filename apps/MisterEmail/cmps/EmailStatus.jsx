@@ -1,7 +1,9 @@
 import { emailService } from '../services/emailService.js'
 
 
-export function EmailStatus({ email }) {
+export function EmailStatus({ email, emailsLen }) {
+    const emailsReadCount = emailService.getReadEmailsCount();
     const emailsUnreadCount = emailService.getUnReadEmailsCount();
-    return <div className="email-status"><h1>Emails Unread: {emailsUnreadCount}</h1></div>
+    const emailsCount = emailsReadCount + emailsUnreadCount;
+    return <progress value={emailsReadCount} max={emailsCount}></progress>
 }

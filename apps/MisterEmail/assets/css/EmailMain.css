@@ -4,15 +4,39 @@
 @import './cmps/EmailCompose.css';
 @import './cmps/EmailFilter.css';
 @import './cmps/EmailList.css';
+@import './cmps/EmailPreview.css';
 @import './cmps/EmailStatus.css';
+@import './cmps/MarkedEmails.css';
 
 .email-app, input, button, a {
     font-family: roboto;
 }
-
-.email-app {
-    padding: 20px;
+body {
+    background-color: #202124;
+ 
 }
+
+.email-app,.email-details{
+    /* width: 100%; */
+    /* width: 100vw; */
+    padding-top: 20px;
+    height: 100vh;
+    background-color: #202124;
+    color: white;
+
+}
+
+*.email-app, *.email-details {
+    color: white;
+}
+
+i {
+    transition: all .15s;
+}
+
+/* .email-app {
+    padding: 20px;
+} */
 
 /* ANIMATIONS */
 

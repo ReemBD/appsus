@@ -1,11 +1,9 @@
 import { EmailList } from '../cmps/EmailList.jsx'
-import { EmailStatus } from '../cmps/EmailStatus.jsx'
 import { EmailCompose } from '../cmps/EmailCompose.jsx'
-import { EmailFilter } from '../cmps/EmailFilter.jsx'
 import { Aside } from '../cmps/Aside.jsx'
 import { emailService } from '../services/emailService.js'
-import { sentEmailService } from '../services/sentEmails.js'
 
+import { eventBusService } from "../../../services/eventBusService.js";
 
 
 export class EmailApp extends React.Component {
@@ -35,7 +33,7 @@ export class EmailApp extends React.Component {
         switch (filterBy.readStatus) {
             case 'read': return this.state.emails.filter(email => email.isRead).filter(email => filterRegex.test(email.subject + email.body))
             case 'unread': return this.state.emails.filter(email => !email.isRead).filter(email => filterRegex.test(email.subject + email.body))
-            default: return this.state.emails.filter(email => filterRegex.test(email.subject + email.body))
+            default: return this.state.emails.filter(email => filterRegex.test(email.subject + email.body + email.from))
 
         }
     }
@@ -51,8 +49,10 @@ export class EmailApp extends React.Component {
     }
 
     componentDidMount() {
+
         this.loadEmails();
     }
+
 
     closeComposeWin = () => {
         this.setState({ isComposeOpen: false })
@@ -63,18 +63,47 @@ export class EmailApp extends React.Component {
     }
 
     composeEmail = () => {
-        const { isComposeOpen } = this.state
         this.setState({ isComposeOpen: true })
+    }
+
+    onRemoveEmail = (emailId) => {
+        emailService.remove(emailId)
+    }
+
+    doActionAllMarked = ({ target }) => {
+        const { emails } = this.state;
+        const markedEmails = emails.filter(email => email.isMarked);
+        console.log('target.dataset.action', target.dataset.action);
+        switch (target.dataset.action) {
+            case 'readAll': {
+                emailService.readAllMarked(markedEmails)
+                    .then(emails => this.setState({ emails }))
+            }
+                break;
+            case 'unreadAll': {
+                emailService.unreadAllMarked(markedEmails)
+                    .then(emails => this.setState({ emails }))
+            }
+                break;
+            case 'removeAll': {
+                emailService.removeAllMarked(markedEmails)
+                    .then(emails => this.setState({ emails }))
+            }
+                break;
+        }
+        emailService.unmarkAll()
+            .then(this.loadEmails())
+
     }
 
     render() {
         const emailsForDisplay = this.emailsForDisplay
-        const { isComposeOpen } = this.state
+        const { isComposeOpen, emails } = this.state
         return (
             <div className="email-app">
                 <div className="email-main-container flex">
-                    <Aside onComposeEmail={this.composeEmail} />
-                    <EmailList onSetFilter={this.onSetFilter} toggleMarked={this.toggleMarked} toggleFav={this.toggleFav} openEmail={this.openEmail} emails={emailsForDisplay} />
+                    <Aside onComposeEmail={this.composeEmail}  />
+                    <EmailList doActionAllMarked={this.doActionAllMarked} onRemoveEmail={this.onRemoveEmail} onSetFilter={this.onSetFilter} toggleMarked={this.toggleMarked} toggleFav={this.toggleFav} openEmail={this.openEmail} emails={emailsForDisplay} />
                     {isComposeOpen && <EmailCompose closeComposeWin={this.closeComposeWin} />}
                     <div>
                     </div>
