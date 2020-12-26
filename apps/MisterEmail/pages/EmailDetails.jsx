@@ -4,6 +4,8 @@ import { Aside } from '../cmps/Aside.jsx'
 import { eventBusService } from "../../../services/eventBusService.js"
 import { EmailCompose } from '../cmps/EmailCompose.jsx'
 
+const { Link } = ReactRouterDOM
+
 export class EmailDetails extends React.Component {
     state = {
         email: null,
@@ -34,7 +36,7 @@ export class EmailDetails extends React.Component {
         emailService.remove(emailId)
     }
 
-    onGoBack = () => { this.props.history.push('/email') }
+    onGoBack = () => { this.props.history.push('/email/inbox') }
 
     onReply = () => {
         this.setState({ isReply: true })
@@ -111,6 +113,7 @@ export class EmailDetails extends React.Component {
                 </div>}
                 {this.state.isComposeOpen && <EmailCompose closeComposeWin={this.closeComposeWin} />}
             </div>
+            <Link to={`/keep/mail&compose=new/body=NOTE-TEXT/subject=My Keep`}> Halo Buba</Link>
         </div>
     }
 }

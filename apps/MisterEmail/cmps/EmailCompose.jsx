@@ -14,6 +14,14 @@ export class EmailCompose extends React.Component {
 
     componentDidMount() {
         this.elInputRef.current.focus()
+        const urlParams = new URLSearchParams(window.location.href);
+        const myParam = urlParams.get('compose')
+        if (myParam === 'new') {
+            const emailCopy = { ...this.state.email }
+            emailCopy.subject = urlParams.get('subject')
+            emailCopy.body = urlParams.get('body')
+            this.setState({ emailToSend: emailCopy })
+        }
     }
 
     onInputChange = (ev) => {
