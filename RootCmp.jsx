@@ -15,10 +15,12 @@ export function RootCmp() {
                 <MainHeader />
 
                 <Switch>
+                    <Route path="/email/inbox/:body?/:subject?" exact component={EmailApp} />
                     <Route path="/email/:emailId" component={EmailDetails} />
-                    <Route path="/email" component={EmailApp} />
+                    {/* <Route path="/email/:compose=true/:body?" component={EmailApp} /> */}
+
                     {/* <Route path="/keep/:keepId?" component={KeepDetails} /> */}
-                    <Route path="/keep" component={KeepApp} />
+                    <Route path="/keep/:mail?" component={KeepApp} />
                     <Route path='/about' component={About} />
                     <Route path='/' component={HomePage} />
                 </Switch>

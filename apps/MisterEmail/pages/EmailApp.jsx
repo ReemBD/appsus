@@ -49,7 +49,12 @@ export class EmailApp extends React.Component {
     }
 
     componentDidMount() {
-
+        const urlParams = new URLSearchParams(window.location.href);
+        const myParam = urlParams.get('compose')
+        if (myParam === 'new') {
+            this.composeEmail()
+        }
+        console.log('myParam: ', myParam);
         this.loadEmails();
     }
 
@@ -67,6 +72,7 @@ export class EmailApp extends React.Component {
     }
 
     onRemoveEmail = (emailId) => {
+
         emailService.remove(emailId)
     }
 
@@ -102,7 +108,7 @@ export class EmailApp extends React.Component {
         return (
             <div className="email-app">
                 <div className="email-main-container flex">
-                    <Aside onComposeEmail={this.composeEmail}  />
+                    <Aside onComposeEmail={this.composeEmail} />
                     <EmailList doActionAllMarked={this.doActionAllMarked} onRemoveEmail={this.onRemoveEmail} onSetFilter={this.onSetFilter} toggleMarked={this.toggleMarked} toggleFav={this.toggleFav} openEmail={this.openEmail} emails={emailsForDisplay} />
                     {isComposeOpen && <EmailCompose closeComposeWin={this.closeComposeWin} />}
                     <div>

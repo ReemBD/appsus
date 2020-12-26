@@ -30,7 +30,7 @@ export class EmailPreview extends React.Component {
 
     render() {
         const { email, onRemoveEmail } = this.props
-        return <Link to={`email/${email.id}`}> <div className={`email-preview flex space-around ${email.isRead && 'read'}`} onClick={this.onOpenEmail}>
+        return <Link to={`/email/${email.id}`}> <div className={`email-preview flex space-around ${email.isRead && 'read'}`} onClick={this.onOpenEmail}>
             <i onClick={(ev) => {
                 ev.preventDefault();
                 this.onToggleMarked(ev)
