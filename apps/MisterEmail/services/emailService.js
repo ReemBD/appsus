@@ -42,7 +42,7 @@ function getFavEmailsCount() {
 }
 
 function getMarkedEmailsCount() {
-    console.log('marked: ', gEmails.filter(email => email.isMarked).length);
+
     return gEmails.filter(email => email.isMarked).length
 
 }
@@ -171,7 +171,7 @@ function addReply(email, reply) {
 
 function _getDemoEmails() {
     return [
-        { id: 'i101', subject: 'I Love You', body: 'Hey Its Emma Watson and wanted to say you look really hot in the pictures', from: 'Emma Watson', fromAddress: 'EmmaWatson@gmail.com', isFav: true, isMarked: false, isRead: false, sentAt: Date.now(), replies: [],  avatarURL: 'https://robohash.org/${email.from}?set=set4' },
+        { id: 'i101', subject: 'I Love You', body: 'Hey Its Emma Watson and wanted to say you look really hot in the pictures', from: 'Emma Watson', fromAddress: 'EmmaWatson@gmail.com', isFav: true, isMarked: false, isRead: false, sentAt: Date.now(), replies: [], avatarURL: 'https://robohash.org/${email.from}?set=set4' },
         {
             id: 'i102', subject: 'Wow', body: 'Your code is amazing. I wish I could write code like you.', from: 'Yaron Biton', fromAddress: 'ILoveCode@ca.com', isMarked: false, isFav: true, isRead: false, sentAt: 1603346085000, replies: [], avatarURL: 'https://robohash.org/${email.from}?set=set4',
         },
@@ -180,8 +180,8 @@ function _getDemoEmails() {
         },
         { id: 'i104', subject: 'PLZ', body: 'PLEASE BE MY PARTNER FOR THIS SPRINT', from: 'every coder ever', isFav: false, fromAddress: 'PopoShmuki@gmail.com', isMarked: false, isRead: false, sentAt: Date.now(), replies: [], avatarURL: 'https://robohash.org/${email.from}?set=set4' },
         { id: 'i105', subject: 'Congrats', body: 'You Have won 1 million shekels!', from: 'Ariella Pais', isFav: false, fromAddress: 'AriellaPais@walla.com', isMarked: false, isRead: false, sentAt: Date.now(), replies: [], avatarURL: 'https://robohash.org/${email.from}?set=set4' },
-        { id: 'i106', subject: 'mmm', body: 'mm mmmm mmmm mmm!!!', from: 'Kenny', isFav: false, isMarked: false, fromAddress: 'KennyBoy@gmail.com', isRead: false, sentAt: Date.now(), replies: [],avatarURL: 'https://robohash.org/${email.from}?set=set4' },
-        { id: 'i107', subject: 'I Am Spam', body: 'Im somehow hoping you wont notice I am obviously spam.', from: 'Emma Watson', fromAddress: 'spam@hotmail.com', isFav: false, isMarked: false, isRead: false, sentAt: Date.now(), replies: [], avatarURL: 'https://robohash.org/${email.from}?set=set4'},
-        { id: 'i108', subject: 'Hello from 1923', body: 'There obviously was email at that time.', from: 'Emma Watson', fromAddress: 'Emush@gmail.com', isFav: false, isMarked: false, isRead: false, sentAt: -1474468635000, replies: [], avatarURL: 'https://robohash.org/${email.from}?set=set4'},
+        { id: 'i106', subject: 'mmm', body: 'mm mmmm mmmm mmm!!!', from: 'Kenny', isFav: false, isMarked: false, fromAddress: 'KennyBoy@gmail.com', isRead: false, sentAt: Date.now(), replies: [], avatarURL: 'https://robohash.org/${email.from}?set=set4' },
+        { id: 'i107', subject: 'I Am Spam', body: 'Im somehow hoping you wont notice I am obviously spam.', from: 'Emma Watson', fromAddress: 'spam@hotmail.com', isFav: false, isMarked: false, isRead: false, sentAt: Date.now(), replies: [], avatarURL: 'https://robohash.org/${email.from}?set=set4' },
+        { id: 'i108', subject: 'Hello from 1923', body: 'There obviously was email at that time.', from: 'Emma Watson', fromAddress: 'Emush@gmail.com', isFav: false, isMarked: false, isRead: false, sentAt: -1474468635000, replies: [], avatarURL: 'https://robohash.org/${email.from}?set=set4' },
     ]
 }

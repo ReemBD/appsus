@@ -14,7 +14,6 @@ export class EmailFilter extends React.Component {
         const filterBy = { ...this.state.filterBy }
         const { onSetFilter } = this.props
         if (ev.target.value || ev.target.value.length === 0) {
-            console.log('ev.target.value: ', ev.target.value);
             filterBy[ev.target.name] = ev.target.value
         }
         else {

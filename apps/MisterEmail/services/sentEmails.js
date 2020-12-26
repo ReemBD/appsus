@@ -23,7 +23,7 @@ function addSentEmail(email) {
     }
     gSentEmails = [emailToAdd, ...gSentEmails]
     _saveSentEmailsToStorage();
-    console.log('gSentEmails: ', gSentEmails);
+
     return Promise.resolve(emailToAdd)
 }
 
@@ -43,7 +43,7 @@ function _loadSentEmailsFromStorage() {
 
 function _getSentEmails() {
     _loadSentEmailsFromStorage().then(sentEmails => {
-        console.log('sentEmails', sentEmails);
+
         if (!sentEmails || !sentEmails.length) gSentEmails = [];
         else gSentEmails = sentEmails;
     })

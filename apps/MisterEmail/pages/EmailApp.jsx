@@ -19,11 +19,9 @@ export class EmailApp extends React.Component {
     componentDidMount() {
         const urlParams = new URLSearchParams(window.location.href);
         const myParam = urlParams.get('compose')
-        console.log(myParam);
         if (myParam === 'new') {
             this.composeEmail()
         }
-        console.log('myParam: ', myParam);
         this.loadEmails();
     }
 
@@ -82,7 +80,6 @@ export class EmailApp extends React.Component {
     doActionAllMarked = ({ target }) => {
         const { emails } = this.state;
         const markedEmails = emails.filter(email => email.isMarked);
-        console.log('target.dataset.action', target.dataset.action);
         switch (target.dataset.action) {
             case 'readAll': {
                 emailService.readAllMarked(markedEmails)
