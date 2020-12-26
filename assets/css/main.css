@@ -7,7 +7,8 @@
 @import './basics/UserMsg.css';
 @import './cmps/MainNav.css';
 @import './cmps/AppGrid.css';
-@import './cmps//HomePage.css';
+@import './cmps/HomePage.css';
+@import './cmps/About.css';
 
 /* APPS */
 

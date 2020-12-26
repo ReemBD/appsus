@@ -25,7 +25,7 @@ var demoNotes = [
             txt: "Netflix password: password"
         },
         style: {
-            backgroundColor: "linear-gradient(#F9EFAF, #F7E98D)"
+            backgroundColor: " #b9dcf4"
         }
     },
     {
@@ -63,7 +63,7 @@ var demoNotes = [
             url: 'https://www.youtube.com/embed/tgbNymZ7vqY'
         },
         style: {
-            backgroundColor: "linear-gradient(#F9EFAF, #F7E98D)"
+            backgroundColor: "#D7AEFB"
         }
     },
     {
@@ -74,7 +74,7 @@ var demoNotes = [
             url: 'https://giphy.com/embed/ukMiDlCmdv2og'
         },
         style: {
-            backgroundColor: "linear-gradient(#F9EFAF, #F7E98D)"
+            backgroundColor: "#FFBDA3"
         }
     },
     {
@@ -85,7 +85,7 @@ var demoNotes = [
             url: 'https://images.pexels.com/photos/4297812/pexels-photo-4297812.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
         },
         style: {
-            backgroundColor: "linear-gradient(#F9EFAF, #F7E98D)"
+            backgroundColor: "#CAF4B9"
         }
     },
 
@@ -100,11 +100,9 @@ function _createNotes() {
         gNotes = demoNotes;
         _saveNotesToStorage()
     }
-    console.log('loaded notes:', gNotes);
 }
 
 function saveNote(note) {
-    console.log(note);
     formatNote(note)
 }
 
@@ -152,6 +150,11 @@ function todoUpdate(todos, noteId) {
     const noteToUpdateIdx = getNoteIdxById(noteId)
     const notes = [...gNotes]
     notes[noteToUpdateIdx].info.todos = todos
+    let todosToTxt = '';
+    todos.forEach(todo => {
+        todosToTxt += todo.txt + ', '
+    })
+    notes[noteToUpdateIdx].info.txt = todosToTxt
     gNotes = notes
     _saveNotesToStorage()
     return Promise.resolve()
@@ -215,7 +218,6 @@ function formatNote(note) {
     const gNotesCopy = [...gNotes]
     gNotesCopy.unshift(formmatedNote)
     gNotes = gNotesCopy;
-    console.log(gNotes);
     _saveNotesToStorage()
 
 }

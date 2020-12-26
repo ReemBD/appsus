@@ -14,7 +14,7 @@ export class NoteActions extends React.Component {
 
     onPaletteClick = () => {
         const stateCopy = { ...this.state.color }
-        stateCopy.isPaletteOpen = true
+        stateCopy.isPaletteOpen = !this.state.color.isPaletteOpen
         this.setState({ color: stateCopy })
     }
 
