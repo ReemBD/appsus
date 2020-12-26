@@ -1,8 +1,9 @@
+import { AppGrid } from './AppGrid.jsx'
 const { Link, NavLink, withRouter } = ReactRouterDOM;
 export function MainHeader() {
 
     return (
-        <header className='main-header flex'>
+        <header className='main-header keep-main-layout flex'>
             <div className="logo"><Link to="/">Appsus</Link></div>
             <nav className="main-nav">
                 <ul className="flex">
@@ -11,6 +12,7 @@ export function MainHeader() {
                     <li><NavLink to="/keep">Miss Keep</NavLink></li>
                     <li><NavLink to="/books">Miss Books</NavLink></li>
                     <li><NavLink to="/about">About</NavLink></li>
+                    <AppGrid />
                 </ul>
             </nav>
         </header>

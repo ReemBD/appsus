@@ -72,7 +72,7 @@ export class NoteTodos extends React.Component {
                                         name="txt"
                                     >{todo.txt.trim()}
                                     </textarea>
-                                    <i style={todo.doneAt ? { color: 'green' } : {}} onClick={(e) => this.onCheckboxClick(todo.id, e)} class="far fa-check-square"></i>
+                                    <i style={todo.doneAt ? { color: 'green' } : {}} onClick={(e) => this.onCheckboxClick(todo.id, e)} className="far fa-check-square"></i>
                                 </div>
                             </li>
                         })}
