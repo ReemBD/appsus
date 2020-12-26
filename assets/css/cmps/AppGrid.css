@@ -2,6 +2,7 @@
     position: relative;
     float: right;
     border-radius: 999px;
+    margin-inline-start: 10px;
 
 }
 
@@ -35,7 +36,7 @@
 }
 .menu-tab-parent .dropdown-grid {
     position: absolute;
-    background-color: #eee;
+    background-color: rgba(255, 255, 255, 0.97);
     top: 68px;
     right:20px;
     /* left: -100px; */

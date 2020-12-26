@@ -8,11 +8,16 @@
     top: 0;
     right: 0;
     left: 0;
-    background-color: rgb(80, 75, 75);
+    background-color: #202124;
     z-index: 100000;
 }
 
-.logo {
-    width: 100px;
-    height: 100px;
+.header-container a {
+    color: whitesmoke;
 }
+
+.logo a{
+    font-size: 38px;
+    letter-spacing: 3.8px;
+}
+

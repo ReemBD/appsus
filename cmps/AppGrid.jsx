@@ -23,16 +23,11 @@ export function AppGrid() {
                     </g>
                 </svg>
             </div>
-<<<<<<< HEAD
-            <div className="dropdown-grid" onClick={() => { console.log('hello') }}>
-                <h1>Im app grid</h1>
-=======
             <div className="dropdown-grid flex" onClick={() => { console.log('hello') }}>
 
                 <Link to="/email"> <img src="../assets/img/grid-svg/mail.svg" alt="MisterEmail" title="MisterEmail" /></Link>
                 <Link to="/keep"><img src="../assets/img/grid-svg/notes.svg" alt="MissKeep" title="MissKeep" /></Link>
                 <Link to="/books"><img src="../assets/img/grid-svg/book.svg" alt="MissBook" title="MissBook" /></Link>
->>>>>>> aa388c67aa035b967570056d54a1030271ffefe3
             </div>
         </div>
     )
