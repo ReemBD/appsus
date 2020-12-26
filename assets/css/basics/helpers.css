@@ -3,9 +3,18 @@
 .flex {
     display: flex;
 }
+<<<<<<< HEAD
 .align-center {
     align-items: center;
 }
+=======
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+>>>>>>> 255c3bab271df8e521c411220cc5f5955c1b3e27
 .space-between {
     justify-content: space-between;
 }

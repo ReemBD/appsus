@@ -1,12 +1,17 @@
-import { KeepInput } from '../cmps/KeepInput.jsx'
+import { NoteInput } from '../cmps/NoteInput.jsx'
 import { keepService } from '../services/keepService.js'
 import { NoteList } from '../cmps/NoteList.jsx'
-import { utilService } from '../../../services/utilService.js'
+import { PinnedNotesList } from '../cmps/PinnedNotesList.jsx'
+import { NoteFilter } from '../cmps/NoteFilter.jsx'
 
 export class KeepApp extends React.Component {
 
     state = {
         notes: [],
+        pinnedNotes: [],
+        filterBy: {
+            txt: ''
+        }
     }
 
     componentDidMount() {
@@ -19,13 +24,14 @@ export class KeepApp extends React.Component {
     }
 
     get notesForDisplay() {
-        return this.state.notes
+        const { filterBy } = this.state
+        const filterRegex = new RegExp(filterBy.txt, 'i')
+        return this.state.notes.filter(note => filterRegex.test(note.info.txt))
     }
 
 
 
     onNoteAdd = (note) => {
-        console.log('From app', note)
         keepService.saveNote(note)
         this.loadNotes()
         // .then(notes => {
@@ -37,7 +43,6 @@ export class KeepApp extends React.Component {
     }
 
     onNoteDelete = (noteId) => {
-        console.log(noteId)
         keepService.deleteNote(noteId)
             .then(this.loadNotes)
 
@@ -49,19 +54,33 @@ export class KeepApp extends React.Component {
     }
 
     onNoteColorChange = (color, noteId) => {
-        console.log(color, noteId);
         keepService.changeColor(color, noteId)
             .then(this.loadNotes())
             .then(console.log(this.state.notes))
+    }
 
+    onNotePin = (noteId) => {
+        keepService.pinNote(noteId)
+            .then(this.loadNotes())
+    }
+
+    onSetFilter = (filterBy) => {
+        this.setState({ filterBy })
+    }
+
+    onTodoChange = (todos, noteId) => {
+        keepService.todoUpdate(todos, noteId)
+            .then(this.loadNotes)
     }
 
     render() {
         const notesForDisplay = this.notesForDisplay;
         return (
             <div className='keep-app keep-main-layout'>
-                <KeepInput onAdd={this.onNoteAdd} />
-                <NoteList notes={notesForDisplay} onDelete={this.onNoteDelete} onEdit={this.onNoteEdit} onColor={this.onNoteColorChange} />
+                <NoteInput onAdd={this.onNoteAdd} />
+                <NoteFilter setFilter={this.onSetFilter} />
+                <PinnedNotesList notes={notesForDisplay} onDelete={this.onNoteDelete} onEdit={this.onNoteEdit} onColor={this.onNoteColorChange} onPin={this.onNotePin} onTodoChange={this.onTodoChange} />
+                <NoteList notes={notesForDisplay} onDelete={this.onNoteDelete} onEdit={this.onNoteEdit} onColor={this.onNoteColorChange} onPin={this.onNotePin} onTodoChange={this.onTodoChange} />
             </div>
         )
     }

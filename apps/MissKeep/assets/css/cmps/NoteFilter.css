@@ -1,0 +1,19 @@
+.note-filter {
+    width: 15%;
+    margin: 0 auto 15px auto;
+}
+
+
+.note-filter input {
+    width: 100%;
+    border: none;
+    border-bottom: 3px solid #eee;
+    padding-bottom: 5px;
+
+    transition: all .3s;
+}
+
+.note-filter input:focus {
+    border-bottom: 3px solid #333;
+
+}

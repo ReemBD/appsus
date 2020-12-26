@@ -6,6 +6,8 @@ export const keepService = {
     saveNote,
     deleteNote,
     updateNote,
+    pinNote,
+    todoUpdate,
     changeColor,
     getNoteById,
 
@@ -23,42 +25,45 @@ var demoNotes = [
             txt: "Netflix password: password"
         },
         style: {
-            backgroundColor: "#FFF475"
+            backgroundColor: "linear-gradient(#F9EFAF, #F7E98D)"
         }
     },
     {
         type: "NoteImg",
         id: 2,
+        isPinned: false,
         info: {
             url: "https://images.pexels.com/photos/1370697/pexels-photo-1370697.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
             title: "Me playing Mi"
         },
         style: {
-            backgroundColor: "#FFF475"
+            backgroundColor: "linear-gradient(#F9EFAF, #F7E98D)"
         }
     },
     {
         type: "NoteTodos",
         id: 3,
+        isPinned: false,
         info: {
-            label: "How was it:",
+            txt: 'Buy a birthday present, Renew passport',
             todos: [
                 { txt: "Buy a birthday present", doneAt: null, id: utilService.makeId() },
                 { txt: "Renew passport", doneAt: 187111111, id: utilService.makeId() }
             ]
         },
         style: {
-            backgroundColor: "#FFF475"
+            backgroundColor: "linear-gradient(#F9EFAF, #F7E98D)"
         }
     },
     {
         type: "NoteVideo",
         id: 4,
+        isPinned: false,
         info: {
             url: 'https://www.youtube.com/embed/tgbNymZ7vqY'
         },
         style: {
-            backgroundColor: "#FFF475"
+            backgroundColor: "linear-gradient(#F9EFAF, #F7E98D)"
         }
     },
 
@@ -111,6 +116,24 @@ function changeColor(color, noteId) {
     return Promise.resolve()
 }
 
+function pinNote(noteId) {
+    const noteToUpdateIdx = getNoteIdxById(noteId)
+    const notes = [...gNotes]
+    notes[noteToUpdateIdx].isPinned = !notes[noteToUpdateIdx].isPinned
+    gNotes = notes
+    _saveNotesToStorage()
+    return Promise.resolve()
+
+}
+
+function todoUpdate(todos, noteId) {
+    const noteToUpdateIdx = getNoteIdxById(noteId)
+    const notes = [...gNotes]
+    notes[noteToUpdateIdx].info.todos = todos
+    gNotes = notes
+    _saveNotesToStorage()
+    return Promise.resolve()
+}
 function getNoteById(noteId) {
     const note = gNotes.find(note => note.id === noteId)
     return Promise.resolve(note)
@@ -139,6 +162,7 @@ function formatNote(note) {
 
     if (noteType === 'NoteTodos') {
         const formattedTodos = []
+        formmatedNote.info.txt = keepTxt // To allow easy filtering in todos
         const userTodos = keepTxt.split(',')
         userTodos.forEach(todo => {
             formattedTodos.push({
