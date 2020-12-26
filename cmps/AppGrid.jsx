@@ -1,9 +1,9 @@
-
+const { Link } = ReactRouterDOM;
 
 export function AppGrid() {
 
     return (
-        <div className="menu-tab-parent">
+        <div className="menu-tab-parent cursor-pointer">
             <div className="menu-tab">
                 <svg className="menu-icon" viewBox="0 0 20 20" version="1.1">
                     <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -23,9 +23,11 @@ export function AppGrid() {
                     </g>
                 </svg>
             </div>
-            <div className="dropdown-grid" onClick={()=>{console.log('hello')}}>
-                <h1>Im app grid</h1>
+            <div className="dropdown-grid flex" onClick={() => { console.log('hello') }}>
 
+                <Link to="/email"> <img src="../assets/img/grid-svg/mail.svg" alt="MisterEmail" title="MisterEmail" /></Link>
+                <Link to="/keep"><img src="../assets/img/grid-svg/notes.svg" alt="MissKeep" title="MissKeep" /></Link>
+                <Link to="/books"><img src="../assets/img/grid-svg/book.svg" alt="MissBook" title="MissBook" /></Link>
             </div>
         </div>
     )

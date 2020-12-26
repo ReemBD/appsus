@@ -3,18 +3,16 @@ const { Link, NavLink, withRouter } = ReactRouterDOM;
 export function MainHeader() {
 
     return (
-        <header className='main-header keep-main-layout flex'>
-            <div className="logo"><Link to="/">Appsus</Link></div>
-            <nav className="main-nav">
-                <ul className="flex">
-                    <li><NavLink exact to="/">Home</NavLink></li>
-                    <li><NavLink to="/email">Mister Email</NavLink></li>
-                    <li><NavLink to="/keep">Miss Keep</NavLink></li>
-                    <li><NavLink to="/books">Miss Books</NavLink></li>
-                    <li><NavLink to="/about">About</NavLink></li>
-                    <AppGrid />
-                </ul>
-            </nav>
-        </header>
+        <div className="header-container">
+            <header className='main-header keep-main-layout flex'>
+                <div className="logo"><Link to="/"><img src="./assets/img/logos/appsus_logo1.png"  alt="" /></Link></div>
+                <nav className="main-nav">
+                    <ul className="flex flex-center">
+                        <li><NavLink to="/about">About</NavLink></li>
+                        <AppGrid />
+                    </ul>
+                </nav>
+            </header>
+        </div>
     )
 }
