@@ -23,9 +23,8 @@ export function AppGrid() {
                     </g>
                 </svg>
             </div>
-            <div className="dropdown-grid" onClick={()=>{console.log('hello')}}>
+            <div className="dropdown-grid" onClick={() => { console.log('hello') }}>
                 <h1>Im app grid</h1>
-
             </div>
         </div>
     )
