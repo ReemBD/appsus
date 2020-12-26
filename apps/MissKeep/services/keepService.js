@@ -100,11 +100,9 @@ function _createNotes() {
         gNotes = demoNotes;
         _saveNotesToStorage()
     }
-    console.log('loaded notes:', gNotes);
 }
 
 function saveNote(note) {
-    console.log(note);
     formatNote(note)
 }
 
@@ -152,6 +150,11 @@ function todoUpdate(todos, noteId) {
     const noteToUpdateIdx = getNoteIdxById(noteId)
     const notes = [...gNotes]
     notes[noteToUpdateIdx].info.todos = todos
+    let todosToTxt = '';
+    todos.forEach(todo => {
+        todosToTxt += todo.txt + ', '
+    })
+    notes[noteToUpdateIdx].info.txt = todosToTxt
     gNotes = notes
     _saveNotesToStorage()
     return Promise.resolve()
@@ -215,7 +218,6 @@ function formatNote(note) {
     const gNotesCopy = [...gNotes]
     gNotesCopy.unshift(formmatedNote)
     gNotes = gNotesCopy;
-    console.log(gNotes);
     _saveNotesToStorage()
 
 }
