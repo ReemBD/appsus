@@ -84,6 +84,8 @@
     align-items: center;
 }
 
+
+
 .note-actions > * {
   cursor: pointer;
   
@@ -93,12 +95,19 @@
   max-height: 30px;
 }
 
+.actions-container i:hover {
+  transform: scale(1.1);
+}
+
+
 .color-palette {
   position: relative;
   top: 20px;
   border: none;
   border-radius: 3px;
   justify-content: space-around;
+  background-color: white;
+  padding: 5px;
 }
 
 .color-circle {

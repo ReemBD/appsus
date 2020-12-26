@@ -5,7 +5,7 @@ export function MainHeader() {
     return (
         <div className="header-container">
             <header className='main-header keep-main-layout flex'>
-                <div className="logo"><Link to="/">appsus</Link></div>
+                <div className="logo"><Link to="/"><div>appsus <span> </span></div></Link></div>
                 <nav className="main-nav">
                     <ul className="flex flex-center">
                         <li><NavLink to="/about">About</NavLink></li>

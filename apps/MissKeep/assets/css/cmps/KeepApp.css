@@ -4,19 +4,10 @@
     margin: 0 auto;
 }
 
-/* .fade-in {
-	animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+.keep-input-container i:hover {
+  opacity: 0.87;
 }
 
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-} */
 
 
 .swing-in-top-fwd {
