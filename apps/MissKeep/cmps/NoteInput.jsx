@@ -36,7 +36,6 @@ export class NoteInput extends React.Component {
         ev.preventDefault()
         const { keepTxt } = this.state.inputInfo
         if (!keepTxt) {
-            console.log('Cant add empty keep') // Change to even bus message
             return
         }
         this.props.onAdd(this.state.inputInfo)

@@ -3,6 +3,9 @@ import { MainHeader } from './cmps/MainHeader.jsx';
 import { EmailApp } from './apps/MisterEmail/pages/EmailApp.jsx';
 import { EmailDetails } from './apps/MisterEmail/pages/EmailDetails.jsx';
 import { KeepApp } from './apps/MissKeep/pages/KeepApp.jsx';
+import { BookApp } from './apps/MissBooks/pages/BookApp.jsx';
+import { BookDetails } from './apps/MissBooks/cmps/BookDetails.jsx';
+import { ReviewAdd } from './apps/MissBooks/cmps/ReviewAdd.jsx';
 import { About } from './pages/About.jsx';
 
 const Router = ReactRouterDOM.HashRouter;
@@ -21,6 +24,9 @@ export function RootCmp() {
 
                     {/* <Route path="/keep/:keepId?" component={KeepDetails} /> */}
                     <Route path="/keep/:mail?" component={KeepApp} />
+                    <Route path="/book/review/:bookId?" component={ReviewAdd} />
+                    <Route path="/book/:bookId" component={BookDetails} />
+                    <Route path="/book" component={BookApp} />
                     <Route path='/about' component={About} />
                     <Route path='/' component={HomePage} />
                 </Switch>

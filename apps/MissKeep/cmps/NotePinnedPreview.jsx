@@ -4,7 +4,6 @@ export class NotePinnedPreview extends React.Component {
 
     render() {
         const { note, onDelete, onEdit, onColor, onPin, onTodoChange } = this.props
-        // console.log('note from dynamic', note);
         return (
             <section className="pinned-notes">
 

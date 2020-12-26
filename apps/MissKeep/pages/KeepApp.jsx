@@ -56,7 +56,6 @@ export class KeepApp extends React.Component {
     onNoteColorChange = (color, noteId) => {
         keepService.changeColor(color, noteId)
             .then(this.loadNotes())
-            .then(console.log(this.state.notes))
     }
 
     onNotePin = (noteId) => {

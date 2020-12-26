@@ -1,0 +1,37 @@
+/* SINGLE BOOK PREVIEW */
+.book-full-details {
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+.book-full-details h1 {
+    margin-bottom: 10px;
+    font-size: 50px;
+}
+
+.book-full-details img {
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+}
+
+.book-details-text {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-basis: 50%;
+}
+
+.book-details-text > *:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.book-img-container {
+    width: 20%
+}
+
+.book-img-container img {
+    width: 100%;
+}
