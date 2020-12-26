@@ -15,7 +15,7 @@ export function RootCmp() {
                 <MainHeader />
 
                 <Switch>
-                    <Route path="/email/inbox/:body?/:subject?" exact component={EmailApp} />
+                    <Route path="/email/inbox/:compose?/:body?/:subject?" exact component={EmailApp} />
                     <Route path="/email/:emailId" component={EmailDetails} />
                     {/* <Route path="/email/:compose=true/:body?" component={EmailApp} /> */}
 
