@@ -9,7 +9,7 @@ export function About() {
                 <div className="team-member">
                     <div className="member-info">
                         <h4>Reem Ben-David</h4>
-                        <img src="../assets/img/team/reem.jpeg" alt="" />
+                        <img src="./assets/img/team/reem.jpeg" alt="" />
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero est pariatur similique iusto molestias harum numquam ex nobis a quis!</p>
                     </div>
                 </div>
@@ -17,7 +17,7 @@ export function About() {
                 <div className="team-member">
                     <div className="member-info">
                         <h4>Yehonathan Segev</h4>
-                        <img src="../assets/img/team/yoni.png" alt="" />
+                        <img src="./assets/img/team/yoni.png" alt="" />
                         <p>An aspiring full stack developer, can't let a day pass without learning new things. <br /> Currently enrolled in the Coding Academy Bootcamp
                     <br />
                     23 years old from Ashdod
