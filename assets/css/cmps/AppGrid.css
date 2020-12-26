@@ -38,9 +38,26 @@
     background-color: #eee;
     top: 68px;
     right:20px;
-    left: -100px;
+    /* left: -100px; */
+    padding: 15px;
     opacity: 0;
     visibility:hidden;
+    gap:20px;
+    border-radius: 10px;
 
     transition: all .2s;
+}
+
+.menu-tab-parent .dropdown-grid img {
+    width: 80px;
+    cursor: pointer;
+    padding: 15px;
+    /* margin-bottom: 20px; */
+    border-radius: 10px;
+    transition: all .2s;
+}
+
+.menu-tab-parent .dropdown-grid img:hover {
+    background-color: rgba(95, 88, 88, 0.301);
+
 }
