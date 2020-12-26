@@ -27,3 +27,20 @@
 .menu-icon g {
     fill: #939394;
 }
+
+/* DROPDOWN */
+.menu-tab-parent:hover .dropdown-grid {
+    visibility: visible;
+    opacity: 1;
+}
+.menu-tab-parent .dropdown-grid {
+    position: absolute;
+    background-color: #eee;
+    top: 68px;
+    right:20px;
+    left: -100px;
+    opacity: 0;
+    visibility:hidden;
+
+    transition: all .2s;
+}
