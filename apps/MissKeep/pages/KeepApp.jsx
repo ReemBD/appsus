@@ -34,12 +34,6 @@ export class KeepApp extends React.Component {
     onNoteAdd = (note) => {
         keepService.saveNote(note)
         this.loadNotes()
-        // .then(notes => {
-        //     const copyNotes = [...this.state.notes]
-        //     copyNotes = notes
-        //     this.setState({ notes: copyNotes })
-
-        // })
     }
 
     onNoteDelete = (noteId) => {
@@ -56,7 +50,6 @@ export class KeepApp extends React.Component {
     onNoteColorChange = (color, noteId) => {
         keepService.changeColor(color, noteId)
             .then(this.loadNotes())
-            .then(console.log(this.state.notes))
     }
 
     onNotePin = (noteId) => {

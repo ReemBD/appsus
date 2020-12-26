@@ -102,7 +102,6 @@ export class EmailDetails extends React.Component {
                     <p className="email-body">{email.body}</p>
                     <div className="prev-replies-container">
                         {email.replies.map((reply, idx) => {
-                            console.log('reply key: ', idx, reply.sentAt);
                             return <p className="prev-reply" key={reply.sentAt}>{reply.txt}</p>
                         })}
                     </div>

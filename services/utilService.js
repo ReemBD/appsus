@@ -2,7 +2,8 @@ export const utilService = {
     makeId,
     formatTime,
     getRandomInteger,
-    formatHours
+    formatHours,
+    getRandomPrice
 };
 
 function makeId(length = 6) {
@@ -32,4 +33,8 @@ function formatHours(date) {
 
 function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function getRandomPrice() {
+    return Math.floor(Math.random() * (250 - 10)) + 10;
 }

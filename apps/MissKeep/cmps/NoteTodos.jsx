@@ -17,13 +17,11 @@ export class NoteTodos extends React.Component {
 
     onTodoClick = (todoId) => {
         this.setState({ isEditable: true, currentTodoId: todoId })
-        console.log(todoId);
 
     }
 
     onCheckboxClick = (todoId, ev) => {
         ev.stopPropagation()
-        console.log(todoId);
         const todoToUpdateIdx = this.state.todos.findIndex(todo => todo.id === todoId)
         const todosCopy = [...this.state.todos]
         if (todosCopy[todoToUpdateIdx].doneAt) todosCopy[todoToUpdateIdx].doneAt = null
@@ -40,7 +38,6 @@ export class NoteTodos extends React.Component {
 
     saveEdit = (txt, currentTodoId) => {
         const todoToUpdateIdx = this.state.todos.findIndex(todo => todo.id === currentTodoId)
-        console.log(todoToUpdateIdx);
         const todosCopy = [...this.state.todos]
         todosCopy[todoToUpdateIdx].txt = txt
         this.setState({ todos: todosCopy }, () => {

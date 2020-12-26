@@ -1,18 +1,3 @@
-.keep-app {
-  padding-bottom: 20px;
-}
-
-.keep-main-layout {
-    width: 95vw;
-    margin: 0 auto;
-}
-
-.keep-input-container i:hover {
-  opacity: 0.87;
-}
-
-
-
 .swing-in-top-fwd {
 	animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
 }

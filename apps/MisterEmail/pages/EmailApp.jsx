@@ -16,6 +16,15 @@ export class EmailApp extends React.Component {
         isComposeOpen: false,
     }
 
+    componentDidMount() {
+        const urlParams = new URLSearchParams(window.location.href);
+        const myParam = urlParams.get('compose')
+        if (myParam === 'new') {
+            this.composeEmail()
+        }
+        this.loadEmails();
+    }
+
     loadEmails = () => {
         emailService.query().then(emails => {
             this.setState({ emails });
@@ -48,15 +57,7 @@ export class EmailApp extends React.Component {
         this.loadEmails();
     }
 
-    componentDidMount() {
-        const urlParams = new URLSearchParams(window.location.href);
-        const myParam = urlParams.get('compose')
-        if (myParam === 'new') {
-            this.composeEmail()
-        }
-        console.log('myParam: ', myParam);
-        this.loadEmails();
-    }
+
 
 
     closeComposeWin = () => {
@@ -79,7 +80,6 @@ export class EmailApp extends React.Component {
     doActionAllMarked = ({ target }) => {
         const { emails } = this.state;
         const markedEmails = emails.filter(email => email.isMarked);
-        console.log('target.dataset.action', target.dataset.action);
         switch (target.dataset.action) {
             case 'readAll': {
                 emailService.readAllMarked(markedEmails)

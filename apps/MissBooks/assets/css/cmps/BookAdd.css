@@ -1,0 +1,45 @@
+.book-search-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.book-search-input input {
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    width: 180px;
+}
+
+.book-search-input button {
+    margin: 10px 0;
+}
+
+
+
+.book-search-input .add-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.book-search-input .add-input-container input {
+    margin-bottom: 10px;
+}
+
+.book-search-input .google-book-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+}
+
+.book-search-input .google-book-list-item:not(:last-of-type) {
+        border-bottom: 1px solid gray;
+}
+
+.book-search-input .google-book-list-item button {
+    margin-left: 5px;
+}

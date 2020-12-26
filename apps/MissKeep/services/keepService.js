@@ -34,6 +34,7 @@ var demoNotes = [
         isPinned: false,
         info: {
             url: "https://images.pexels.com/photos/1370697/pexels-photo-1370697.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            txt: "https://images.pexels.com/photos/1370697/pexels-photo-1370697.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
             title: "Me playing Mi"
         },
         style: {
@@ -60,7 +61,8 @@ var demoNotes = [
         id: 4,
         isPinned: false,
         info: {
-            url: 'https://www.youtube.com/embed/tgbNymZ7vqY'
+            url: 'https://www.youtube.com/embed/tgbNymZ7vqY',
+            txt: 'https://www.youtube.com/embed/tgbNymZ7vqY'
         },
         style: {
             backgroundColor: "#D7AEFB"
@@ -71,7 +73,8 @@ var demoNotes = [
         id: 5,
         isPinned: true,
         info: {
-            url: 'https://giphy.com/embed/ukMiDlCmdv2og'
+            url: 'https://giphy.com/embed/ukMiDlCmdv2og',
+            txt: 'https://giphy.com/embed/ukMiDlCmdv2og'
         },
         style: {
             backgroundColor: "#FFBDA3"
@@ -82,7 +85,8 @@ var demoNotes = [
         id: 6,
         isPinned: false,
         info: {
-            url: 'https://images.pexels.com/photos/4297812/pexels-photo-4297812.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+            url: 'https://images.pexels.com/photos/4297812/pexels-photo-4297812.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+            txt: 'https://images.pexels.com/photos/4297812/pexels-photo-4297812.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
         },
         style: {
             backgroundColor: "#CAF4B9"
@@ -208,11 +212,13 @@ function formatNote(note) {
     else if (noteType === 'NoteImg') {
         formmatedNote.type = noteType;
         formmatedNote.info.url = keepTxt;
+        formmatedNote.info.txt = keepTxt;
     }
 
     else if (noteType === 'NoteVideo') {
         formmatedNote.type = noteType;
-        formmatedNote.info.url = keepTxt
+        formmatedNote.info.url = keepTxt;
+        formmatedNote.info.txt = keepTxt;
     }
 
     const gNotesCopy = [...gNotes]

@@ -13,7 +13,7 @@
 }
 
 .keep-input-container:focus-within {
-        box-shadow: 0 0 1px 1px #D3D3D3;
+        box-shadow: 0 0 1px 1px #A19F9F;
 
 }
 
@@ -39,4 +39,10 @@
 
 .keep-input-buttons > *:not(:first-of-type) {
     margin-left: 10px;
+}
+
+@media (max-width: 400px) {
+    .keep-input-container {
+        width: 100%;
+    }
 }
