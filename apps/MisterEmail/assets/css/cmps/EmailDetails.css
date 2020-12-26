@@ -1,3 +1,6 @@
+.email-details {
+    padding-inline-start: 23px;
+}
 .email-details .main-container {
     flex-grow: 4;
     border-radius: 10px;

@@ -31,6 +31,9 @@
     }
 }
 
-@media (min-width: 752px) {
-    /* CHANGE PREVIEW TO COLUMN */
+
+@media (max-width: 758px) {
+     .filter-bar{
+        margin-inline-start: 40px;
+    }
 }

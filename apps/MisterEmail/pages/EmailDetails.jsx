@@ -76,7 +76,7 @@ export class EmailDetails extends React.Component {
         if (!email) return <div></div>
         return <div className="email-details flex">
             <Aside onComposeEmail={this.composeEmail} />
-            <div className="main-container flex flex-column">
+            <div className="main-container flex flex-column keep-main-layout">
 
                 <div className="upper-nav">
                     <i className="fas fa-arrow-left fa-large my-goback-icon cursor-pointer" title="Go back" onClick={this.onGoBack}></i>

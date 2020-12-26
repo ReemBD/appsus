@@ -5,5 +5,5 @@ export function EmailStatus({ email, emailsLen }) {
     const emailsReadCount = emailService.getReadEmailsCount();
     const emailsUnreadCount = emailService.getUnReadEmailsCount();
     const emailsCount = emailsReadCount + emailsUnreadCount;
-    return <progress value={emailsReadCount} max={emailsCount}></progress>
+    return <progress className="unread-counter" value={emailsReadCount} max={emailsCount}></progress>
 }

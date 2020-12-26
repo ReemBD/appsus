@@ -126,3 +126,15 @@
 .email-preview:hover .my-delete-icon:hover, .email-preview:hover .my-unread-icon:hover {
     color: #03A9F4;
 }
+
+@media (max-width: 1186px) {
+    .email-preview .subject, .email-preview .body, .email-preview .from, .email-preview .sent-at {
+        white-space: unset;
+    }
+}
+
+
+@media (max-width: 852px) {
+    .email-preview {
+    }
+}

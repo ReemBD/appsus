@@ -107,7 +107,7 @@ export class EmailApp extends React.Component {
         const { isComposeOpen, emails } = this.state
         return (
             <div className="email-app">
-                <div className="email-main-container flex">
+                <div className="email-main-container keep-main-layout flex">
                     <Aside onComposeEmail={this.composeEmail} />
                     <EmailList doActionAllMarked={this.doActionAllMarked} onRemoveEmail={this.onRemoveEmail} onSetFilter={this.onSetFilter} toggleMarked={this.toggleMarked} toggleFav={this.toggleFav} openEmail={this.openEmail} emails={emailsForDisplay} />
                     {isComposeOpen && <EmailCompose closeComposeWin={this.closeComposeWin} />}
