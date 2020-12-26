@@ -1,3 +1,5 @@
+const { Link } = ReactRouterDOM;
+
 export class NoteActions extends React.Component {
 
     state = {
@@ -57,7 +59,8 @@ export class NoteActions extends React.Component {
                         <i style={pinStyle} className="fas fa-thumbtack"></i>
                     </div>
                     {/* <div className="note-edit-btn"><i className="far fa-edit"></i></div> */}
-                    <div title="Send as mail" className="note-mail-btn"><i className="far fa-paper-plane"></i></div>
+                    <Link to={encodeURI(`/email/inbox&compose=new/body=${this.props.note.info.txt}/subject=My Keep`)}><div title="Send as mail" className="note-mail-btn"><i className="far fa-paper-plane"></i></div></Link>
+
                     <div title="Change note color" onClick={this.onPaletteClick} className="note-color"><i className="fas fa-palette"></i></div>
                     <div title="Delete note" onClick={this.onNoteDelete} className="note-delete-btn"><i className="far fa-trash-alt"></i></div>
                 </section>
