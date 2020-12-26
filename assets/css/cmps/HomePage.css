@@ -63,6 +63,20 @@
   }
 }
 
+@media (max-width: 800px) {
+  .home-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(0);
+  }
+
+  .home-page img {
+    width: 100%;
+  }
+}
+
 
 
 
