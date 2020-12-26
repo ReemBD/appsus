@@ -2,8 +2,6 @@
 @import './cmps//NoteInput.css';
 @import './cmps//Notes.css';
 @import './cmps/NoteFilter.css';
-@import './cmps/MainHeader.css';
-@import './cmps/AppGrid.css';
 
 body {
     background-color: #fff !important;
