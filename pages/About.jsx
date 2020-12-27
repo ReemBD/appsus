@@ -10,7 +10,7 @@ export function About() {
                     <div className="member-info">
                         <h4>Reem Ben-David</h4>
                         <img src="./assets/img/team/reem.jpeg" alt="" />
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero est pariatur similique iusto molestias harum numquam ex nobis a quis!</p>
+                        <p>My name is Reem Ben-David. 24 Years Old from Petah Tikva. Adore creative thinking and always enjoy a good laugh.</p>
                     </div>
                 </div>
 
