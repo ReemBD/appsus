@@ -112,7 +112,6 @@ export class EmailDetails extends React.Component {
                 </div>}
                 {this.state.isComposeOpen && <EmailCompose closeComposeWin={this.closeComposeWin} />}
             </div>
-            <Link to={`/keep/mail&compose=new/body=NOTE-TEXT/subject=My Keep`}> Halo Buba</Link>
         </div>
     }
 }
